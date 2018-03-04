@@ -90,7 +90,7 @@ public class playerShoot : MonoBehaviour {
 			//if (gunID != g2.gunID)
 				switchGun(1);
 		}
-		if (Input.GetKeyDown(KeyCode.Alpha4)) {
+		if (Input.GetKeyDown(KeyCode.Alpha3)) {
 			//if (gunID != g3.gunID)
 				switchGun(2);
 		}

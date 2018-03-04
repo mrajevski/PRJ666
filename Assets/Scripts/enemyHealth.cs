@@ -5,6 +5,7 @@ using UnityEngine;
 public class enemyHealth : MonoBehaviour {
 
 	int health = 1000;
+	public GameObject parent;
 
 	// Use this for initialization
 	void Start () {
@@ -14,7 +15,7 @@ public class enemyHealth : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (health < 0) {
-			this.gameObject.SetActive (false);
+			parent.SetActive (false);
 		}
 	}
 
