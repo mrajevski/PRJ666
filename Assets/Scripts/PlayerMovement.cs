@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour {
 	int floorMask;
 	public float speed;
     public Animator animator;
+	public string startPoint;
+	public static bool playerExists;
     //manual use only
     public int spriteUse = 1;
 
@@ -24,6 +26,16 @@ public class PlayerMovement : MonoBehaviour {
 		cam = Camera.main;
 		player = GetComponent<Rigidbody> ();
 		floorMask = LayerMask.GetMask ("Floor");
+
+		if (!playerExists) {
+			playerExists = true;
+			DontDestroyOnLoad (transform.gameObject);
+		}
+		else {
+			Destroy (gameObject);
+		}
+
+
 	}
 
     // Update is called once per frame

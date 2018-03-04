@@ -21,7 +21,7 @@ public class BaseZomAI : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        //player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         rb2d = GetComponent<Rigidbody2D>();
 
         //gets how long the enemy should take to move and for how long when idle

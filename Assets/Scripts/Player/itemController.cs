@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class itemController : MonoBehaviour {
 
-	public int capacity, bagID, size, last;
+	public int capacity, bagID, size;
+	public string last;
 	/* 0 - starter bag, 10 slots // 1 - small backpack, 15 slots 
 	 * 2 - travel bag, 20 slots // 3 - camping bag, 25 slots
 	 * 4 - military bag, 35 slots */

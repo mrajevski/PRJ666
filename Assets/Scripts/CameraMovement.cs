@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour {
 
-	public Transform target;
+	GameObject target;
+
+	public static bool cameraExists;
 
 	// Use this for initialization
 	void Start () {
+		if (!cameraExists) {
+			target = GameObject.FindGameObjectWithTag ("Player");
+			cameraExists = true;
+			DontDestroyOnLoad (transform.gameObject);
+		}
+		else {
+			Destroy (gameObject);
+		}
 	}
 	
 	// Update is called once per frame

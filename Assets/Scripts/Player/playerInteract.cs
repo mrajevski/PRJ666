@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class playerInteract : MonoBehaviour {
 
-	public int item;
+	public int items;
 	public itemController backpack;
 
 	void OnTriggerStay(Collider c) {
 		switch (c.tag) {
 		case "Item":
 			if (Input.GetKey (KeyCode.E)) {
-				item++;
-				if (backpack.addItem (c.gameObject.GetComponent<itemObject> ()))
+				if (backpack.addItem (c.gameObject.GetComponent<itemObject> ())) {
 					c.gameObject.SetActive (false);
+					items++;
+				}
 			}
 			break;
 		case "Door":
