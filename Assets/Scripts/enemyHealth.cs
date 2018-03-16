@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class enemyHealth : MonoBehaviour {
 
-	int health = 1000;
+	public int health = 1000;
 	public GameObject parent;
 
 	// Use this for initialization

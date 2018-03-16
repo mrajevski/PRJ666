@@ -5,7 +5,7 @@ using UnityEngine;
 public class BaseZomAI : MonoBehaviour {
 
     public float speed;
-    private Rigidbody2D rb2d;
+    private Rigidbody rb;
     private bool moving;
     public float stillTime;
     private float stillCounter;
@@ -22,7 +22,7 @@ public class BaseZomAI : MonoBehaviour {
     void Start () {
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        rb2d = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
 
         //gets how long the enemy should take to move and for how long when idle
         stillCounter = Random.Range(stillTime * 0.75f, stillTime * 1.25f);
@@ -35,13 +35,13 @@ public class BaseZomAI : MonoBehaviour {
 	void Update () {
 
         //if the player gets too close, then the enemy chases the player
-        if (Vector3.Distance(rb2d.transform.position, player.transform.position) < minDist) {
+        if (Vector3.Distance(rb.transform.position, player.transform.position) < minDist) {
         //look at player
         transform.LookAt(player.position);
         transform.Rotate(new Vector3(0, -90, 0), Space.Self);
 
         //chase player
-        transform.Translate(new Vector3((speed + 1) * Time.deltaTime, 0, 0));
+        transform.Translate(new Vector3((speed) * Time.deltaTime, 0, 0));
         } else if (still == false) {//if not then the enemy is idle
             //checks if enemy should be moving when idle
             if (moving) {
@@ -60,13 +60,13 @@ public class BaseZomAI : MonoBehaviour {
 
             } else { //makes enemy stop for a certain amount of time
                 stillCounter -= Time.deltaTime;
-                rb2d.velocity = Vector2.zero;
+                rb.velocity = Vector2.zero;
                 //after theyre still for a certain time, set the moving bool to be true so they move
                 if (stillCounter < 0f) {
                     moving = true;
                     moveCounter = Random.Range(moveTime * 0.75f, moveTime * 1.25f);
                     //make them move in a random direction
-                    moveDir = new Vector3(Random.Range(-1f, 1f) * speed, Random.Range(-1f, 1f) * speed, 0f);
+                    moveDir = new Vector3(Random.Range(-1f, 1f) * speed - 1, Random.Range(-1f, 1f) * speed - 1, 0f);
                 }
             }
         }
