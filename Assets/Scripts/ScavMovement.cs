@@ -19,6 +19,9 @@ public class ScavMovement : MonoBehaviour {
     private float dir;
     public float zoneSize;
 
+    private float xDir;
+    private float yDir;
+
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -73,11 +76,19 @@ public class ScavMovement : MonoBehaviour {
                     moving = true;
                     moveCounter = Random.Range(moveTime * 0.75f, moveTime * 1.25f);
                     //make them move in a random direction
-                    if (Vector3.Distance(rb.transform.position, zone.transform.position) > zoneSize)
+                    //if (Vector3.Distance(rb.position, zone.position) > zoneSize)
+                    if (rb.position.x - zone.position.x > zoneSize || rb.position.y - zone.position.y > zoneSize ||
+                        zone.position.x - rb.position.x > zoneSize || zone.position.y - rb.position.y > zoneSize)
                     {
-                        moveDir = new Vector3((zone.position.x - rb.position.x) * speed - 1,
-                            (zone.position.y - rb.position.y) * speed - 1,
-                            0f);
+                        if (zone.position.x - rb.position.x > 0)
+                            xDir = 1f;
+                        else
+                            xDir = -1f;
+                        if (zone.position.y - rb.position.y > 0)
+                            yDir = 1f;
+                        else
+                            yDir = -1f;
+                        moveDir = new Vector3(xDir * speed - 1, yDir * speed - 1, 0f);
                     }
                     else
                         moveDir = new Vector3(Random.Range(-1f, 1f) * speed - 1, Random.Range(-1f, 1f) * speed - 1, 0f);
