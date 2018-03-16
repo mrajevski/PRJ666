@@ -15,7 +15,7 @@ public class enemyHealth : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (health < 0) {
-			parent.SetActive (false);
+            parent.SetActive (false);
 		}
 	}
 

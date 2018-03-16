@@ -93,4 +93,9 @@ public class PlayerMovement : MonoBehaviour {
 			player.rotation = Quaternion.Euler (0.0f, 0.0f, Mathf.Atan2((floorHit.point.y - transform.position.y), (floorHit.point.x - transform.position.x)) * Mathf.Rad2Deg);
 		}
 	}
+
+    public Animator getAnimator()
+    {
+        return GetComponent<Animator>();
+    }
 }
