@@ -13,11 +13,16 @@ public class BaseZomAI : MonoBehaviour {
     private float moveCounter;
     private Vector3 moveDir;
     public bool still;
-
+    public Animator animator;
     public Transform player;
     public float minDist;
     private float dir;
 
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+
+    }
     // Use this for initialization
     void Start () {
 
@@ -33,18 +38,26 @@ public class BaseZomAI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        if(still)
+            animator.SetBool("idle", true);
         //if the player gets too close, then the enemy chases the player
         if (Vector3.Distance(rb.transform.position, player.transform.position) < minDist) {
-        //look at player
-        transform.LookAt(player.position);
-        transform.Rotate(new Vector3(0, -90, 0), Space.Self);
 
-        //chase player
-        transform.Translate(new Vector3((speed) * Time.deltaTime, 0, 0));
+            if (still) {
+                animator.SetBool("idle", false);
+            }
+
+            //look at player
+            transform.LookAt(player.position);
+            transform.Rotate(new Vector3(0, -90, 0), Space.Self);
+
+            //chase player
+            transform.Translate(new Vector3((speed) * Time.deltaTime, 0, 0));
         } else if (still == false) {//if not then the enemy is idle
             //checks if enemy should be moving when idle
             if (moving) {
+                animator.SetBool("idle", false);
+
                 //makes them move for a certain amount of time
                 moveCounter -= Time.deltaTime;
                 transform.Translate(moveDir * Time.deltaTime, Space.World);
@@ -59,6 +72,7 @@ public class BaseZomAI : MonoBehaviour {
                 }
 
             } else { //makes enemy stop for a certain amount of time
+                animator.SetBool("idle", true);
                 stillCounter -= Time.deltaTime;
                 rb.velocity = Vector2.zero;
                 //after theyre still for a certain time, set the moving bool to be true so they move

@@ -15,6 +15,8 @@ public class BarScript : MonoBehaviour {
 
     public GameObject player;
 
+    private playerHealth health;
+
     private Animator animator;
 
     [SerializeField]
@@ -22,9 +24,9 @@ public class BarScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         armorState = true;
-        currentValue = 100;
-        damage = 0;
-        maxValue = 100;
+        health = player.GetComponent<playerHealth>();
+        currentValue = health.getHealth();
+        maxValue = health.getHealth();
         animator = player.GetComponent<Animator>();
     }
 
@@ -43,20 +45,15 @@ public class BarScript : MonoBehaviour {
     private void HandleBar()
     {
         if (!armorState) {
-            content.fillAmount = Map(currentValue, damage, maxValue);
+            content.fillAmount = Map(currentValue, maxValue);
         }
-        damage = 0;
-    }
+        }
     public bool setArmorState(bool ar)
     {
         return armorState = ar;
     }
-    public float setDamage(float d)
+    private float Map(float value, float MaxH)
     {
-        return currentValue = currentValue - d;
-    }
-    private float Map(float value, float damage, float MaxH)
-    {
-        return (value - damage) / MaxH;
+        return (value) / MaxH;
     }
 }
