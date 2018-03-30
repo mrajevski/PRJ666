@@ -66,7 +66,7 @@ public class BaseZomAI : MonoBehaviour {
                     moving = true;
                     moveCounter = Random.Range(moveTime * 0.75f, moveTime * 1.25f);
                     //make them move in a random direction
-                    moveDir = new Vector3(Random.Range(-1f, 1f) * speed - 1, Random.Range(-1f, 1f) * speed - 1, 0f);
+                    moveDir = new Vector3(Random.Range(1f, -1f) * speed - 1, Random.Range(1f, -1f) * speed - 1, 0f);
                 }
             }
         }
