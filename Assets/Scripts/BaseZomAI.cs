@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BaseZomAI : MonoBehaviour {
-
+    
     public float speed;
     private Rigidbody rb;
     private bool moving;
@@ -20,6 +20,7 @@ public class BaseZomAI : MonoBehaviour {
     public playerHealth playerDamage;
     public int damageTime = 7;
     private int damageCounter;
+    private int ranX, ranY;
 
     void Awake()
     {
@@ -58,6 +59,7 @@ public class BaseZomAI : MonoBehaviour {
 
             //chase player
             transform.Translate(new Vector3((speed) * Time.deltaTime, 0, 0));
+            
         } else if (still == false) {//if not then the enemy is idle
             //checks if enemy should be moving when idle
             if (moving) {
@@ -65,7 +67,7 @@ public class BaseZomAI : MonoBehaviour {
 
                 //makes them move for a certain amount of time
                 moveCounter -= Time.deltaTime;
-                transform.Translate(moveDir * Time.deltaTime, Space.World);
+                transform.Translate(moveDir * (speed - 0.5f) * Time.smoothDeltaTime, Space.World);
                 //adjusts the enemy direction they are facing
                 dir = Mathf.Atan2(moveDir.y, moveDir.x) * Mathf.Rad2Deg;
                 transform.rotation = Quaternion.AngleAxis(dir, Vector3.forward);
@@ -85,7 +87,9 @@ public class BaseZomAI : MonoBehaviour {
                     moving = true;
                     moveCounter = Random.Range(moveTime * 0.75f, moveTime * 1.25f);
                     //make them move in a random direction
-                    moveDir = new Vector3(Random.Range(1f, -1f) * speed - 0.5f, Random.Range(1f, -1f) * speed - 0.5f, 0f);
+                    ranX = Random.Range(-1, 2);
+                    ranY = Random.Range(-1, 2);
+                    moveDir = new Vector3(ranX , ranY, 0f);
                 }
             }
         }

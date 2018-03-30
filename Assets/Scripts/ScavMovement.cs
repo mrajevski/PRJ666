@@ -13,18 +13,19 @@ public class ScavMovement : MonoBehaviour {
     private float moveCounter;
     private Vector3 moveDir;
 
-    public Transform player;
+    public GameObject player;
     public Transform zone;
     public float minDist;
     private float dir;
     public float zoneSize;
+    private int above, below;
 
     private float xDir;
     private float yDir;
 
     // Use this for initialization
     void Start () {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player");
         zone = GameObject.FindGameObjectWithTag("ScavZone").transform;
         rb = GetComponent<Rigidbody>();
 
@@ -37,15 +38,12 @@ public class ScavMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //if the player gets too close, then the enemy chases the player
+        //if the player gets too close, then the enemy lookks at the player
         if (Vector3.Distance(rb.transform.position, player.transform.position) < minDist)
         {
             //look at player
-            transform.LookAt(player.position);
+            transform.LookAt(player.transform.position);
             transform.Rotate(new Vector3(0, -90, 0), Space.Self);
-
-            //chase player
-            //transform.Translate(new Vector3((speed) * Time.deltaTime, 0, 0));
         }
         else {//if not then the enemy is idle
             //checks if enemy should be moving when idle
@@ -53,7 +51,7 @@ public class ScavMovement : MonoBehaviour {
             {
                 //makes them move for a certain amount of time
                 moveCounter -= Time.deltaTime;
-                transform.Translate(moveDir * Time.deltaTime, Space.World);
+                transform.Translate(moveDir * (speed - 0.5f) * Time.smoothDeltaTime, Space.World);
                 //adjusts the enemy direction they are facing
                 dir = Mathf.Atan2(moveDir.y, moveDir.x) * Mathf.Rad2Deg;
                 transform.rotation = Quaternion.AngleAxis(dir, Vector3.forward);
@@ -88,10 +86,10 @@ public class ScavMovement : MonoBehaviour {
                             yDir = 1f;
                         else
                             yDir = -1f;
-                        moveDir = new Vector3(xDir * speed - 1, yDir * speed - 1, 0f);
+                        moveDir = new Vector3(xDir * speed, yDir * speed, 0f);
                     }
                     else
-                        moveDir = new Vector3(Random.Range(-1f, 1f) * speed - 1, Random.Range(-1f, 1f) * speed - 1, 0f);
+                        moveDir = new Vector3(Random.Range(-1, 2), Random.Range(-1, 2), 0f);
                 }
             }
         }
