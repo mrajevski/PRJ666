@@ -14,9 +14,12 @@ public class BaseZomAI : MonoBehaviour {
     private Vector3 moveDir;
     public bool still;
     public Animator animator;
-    public Transform player;
+    public GameObject player;
     public float minDist;
     private float dir;
+    public playerHealth playerDamage;
+    public int damageTime = 7;
+    private int damageCounter;
 
     void Awake()
     {
@@ -26,7 +29,9 @@ public class BaseZomAI : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player");
+        //playerDamage = new playerHealth();
+        damageCounter = damageTime;
         rb = GetComponent<Rigidbody>();
 
         //gets how long the enemy should take to move and for how long when idle
@@ -48,7 +53,7 @@ public class BaseZomAI : MonoBehaviour {
             }
 
             //look at player
-            transform.LookAt(player.position);
+            transform.LookAt(player.transform.position);
             transform.Rotate(new Vector3(0, -90, 0), Space.Self);
 
             //chase player
@@ -80,8 +85,19 @@ public class BaseZomAI : MonoBehaviour {
                     moving = true;
                     moveCounter = Random.Range(moveTime * 0.75f, moveTime * 1.25f);
                     //make them move in a random direction
-                    moveDir = new Vector3(Random.Range(1f, -1f) * speed - 1, Random.Range(1f, -1f) * speed - 1, 0f);
+                    moveDir = new Vector3(Random.Range(1f, -1f) * speed - 0.5f, Random.Range(1f, -1f) * speed - 0.5f, 0f);
                 }
+            }
+        }
+
+        //if player is too close then hit
+        if (Vector3.Distance(rb.transform.position, player.transform.position) < .5f)
+        {
+            --damageCounter;
+            if(damageCounter == 0)
+            {
+                playerDamage.takeDamage(Random.Range(5, 10));
+                damageCounter = damageTime;
             }
         }
     }
