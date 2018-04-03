@@ -10,53 +10,38 @@ public class ArmorBarScript : MonoBehaviour {
     private float maxValue;
 
     public Text CurrentValueText;
-
-    public BarScript health;
-
+    private playerHealth health;
+    public BarScript healthbar;
 
     [SerializeField]
     private Image content;
     // Use this for initialization
     void Start()
     {
-        health = FindObjectOfType<BarScript>();
-        currentValue = 100;
-        damage = 0;
-        maxValue = 100;
+        health = FindObjectOfType<playerHealth>();
+        healthbar = FindObjectOfType<BarScript>();
+        currentValue = health.getArmor();
+        maxValue = health.getArmor();
     }
 
     // Update is called once per frame
     void Update()
     {
+        currentValue = health.getArmor();
         CurrentValueText.text = currentValue + "%";
         HandleBar();
         if (currentValue <= 0)
         {
-            health.setArmorState(false);
+            healthbar.setArmorState(false);
         }
         else
         {
-            health.setArmorState(true);
+            healthbar.setArmorState(true);
         }
     }
 
-    public float gainHealth(float hpGain)
-    {
-        return currentValue += hpGain;
-    }
     private void HandleBar()
     {
-        content.fillAmount = Map(currentValue, damage, maxValue);
-        damage = 0;
-    }
-
-    public float setDamage(float v, float d)
-    {
-        v = v - d;
-        return currentValue = v;
-    }
-    private float Map(float value, float damage, float MaxH)
-    {
-        return setDamage(value, damage) / MaxH;
+        content.fillAmount = currentValue / 100;
     }
 }
