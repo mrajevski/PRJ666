@@ -20,3 +20,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/shop.unity
     guid: 05d503dd5b3c0c141ada7d0967debdc7
+  - enabled: 1
+    path: Assets/Scenes/LucasMap2/LucasMap2.unity
+    guid: 61b868f5603305b40bd1dae1194b2968
+  - enabled: 1
+    path: Assets/Scenes/LucasMap2/LucasMap2Shop.unity
+    guid: e9bc9d7379c7ced42b3d35ba44329e15
+  - enabled: 1
+    path: Assets/Scenes/LucasMap2/House1.unity
+    guid: 83ac4b17f911cda419c1b56d0c8be76f
+  - enabled: 1
+    path: Assets/Scenes/LucasMap2/House2.unity
+    guid: c9ffd8f377def304baef7e3a7f5add93
+  - enabled: 1
+    path: Assets/Scenes/LucasMap2/House3.unity
+    guid: 95ec26cd6042d1040acaaa79bf6a42bf
+  - enabled: 1
+    path: Assets/Scenes/LucasMap2/House4.unity
+    guid: f0758f15efe13804898c395d900305ad
