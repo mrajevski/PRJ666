@@ -14,7 +14,8 @@ public class inventoryUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		inventory = backpack.GetComponent<itemController> ();
+        inventory = FindObjectOfType<itemController>();
+        //inventory = backpack.GetComponent<itemController> ();
 		ammo = backpack.GetComponent<ammoController> ();
 		ui.enabled = false;
 	}

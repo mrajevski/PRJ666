@@ -23,7 +23,8 @@ public class BarScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         armorState = true;
-        health = player.GetComponent<playerHealth>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        health = Object.FindObjectOfType<playerHealth>();
         currentValue = health.getHealth();
         maxValue = health.getHealth();
         animator = player.GetComponent<Animator>();
