@@ -8,7 +8,6 @@ public class BarScript : MonoBehaviour {
     private float currentValue;
     private float damage;
     private float maxValue;
-
     private bool armorState;
 
     public Text CurrentValueText;
@@ -32,6 +31,7 @@ public class BarScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        currentValue = health.getHealth();
         CurrentValueText.text = currentValue + "%";
         HandleBar();
         if (currentValue <= 0)
@@ -42,18 +42,16 @@ public class BarScript : MonoBehaviour {
         }
 	}
 
-    private void HandleBar()
-    {
+    private void HandleBar() {
         if (!armorState) {
             content.fillAmount = Map(currentValue, maxValue);
         }
-        }
-    public bool setArmorState(bool ar)
-    {
+    }
+
+    public bool setArmorState(bool ar) {
         return armorState = ar;
     }
-    private float Map(float value, float MaxH)
-    {
+    private float Map(float value, float MaxH) {
         return (value) / MaxH;
     }
 }
