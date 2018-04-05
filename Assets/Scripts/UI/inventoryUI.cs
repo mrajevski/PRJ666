@@ -14,24 +14,32 @@ public class inventoryUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        ui.enabled = false;
         inventory = FindObjectOfType<itemController>();
-        //inventory = backpack.GetComponent<itemController> ();
+        //inventory = backpack.GetComponent<itemController> ();//Remove code if not needed
 		ammo = backpack.GetComponent<ammoController> ();
 		ui.enabled = false;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Tab)) {
-			openUI = !openUI;
-			ui.enabled = openUI;
-
-			if (openUI) {
-				updateAmmo ();
-				updateInventory ();
-			}
-		}
-	}
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            // Ensure the inventory stays open
+            openUI = !openUI;
+            ui.enabled = openUI;
+            if (openUI)
+            {
+                ui.enabled = true;
+                updateAmmo();
+                updateInventory();
+            }
+            else
+            {
+                ui.enabled = false;
+            }
+        }
+    }
 
 	void updateAmmo() {
 		ammo9mm.text = ammo.ammo9mm.ToString ();
