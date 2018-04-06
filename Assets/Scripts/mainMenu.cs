@@ -38,11 +38,12 @@ public class mainMenu : MonoBehaviour {
 
     public void StartLevel()
     {
-        PlayerPrefs.DeleteAll();
         Time.timeScale = 1f;
+        SceneManager.LoadScene("main");
+        playerHealth.health = 100;
+        playerHealth.armor = 100;
         if (PlayerPrefs.HasKey("Volume"))
             settingsMenu.SetVolume(PlayerPrefs.GetFloat("Volume"));
-        SceneManager.LoadScene("main");
     }
 
     public void Load()
@@ -50,9 +51,9 @@ public class mainMenu : MonoBehaviour {
         if (PlayerPrefs.HasKey("Scene"))
         {
             Time.timeScale = 1f;
+            SceneManager.LoadScene(PlayerPrefs.GetString("Scene"));
             playerHealth.health = PlayerPrefs.GetFloat("Health");
             playerHealth.armor = PlayerPrefs.GetFloat("Armor");
-            SceneManager.LoadScene(PlayerPrefs.GetString("Scene"));
         }
         else
         {
