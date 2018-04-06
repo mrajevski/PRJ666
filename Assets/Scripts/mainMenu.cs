@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class mainMenu : MonoBehaviour {
 
+    public SettingsMenu settingsMenu;
+    public playerHealth playerHealth;
     public Canvas quitMenu;
     public Button startText;
     public Button quitText;
@@ -15,6 +17,8 @@ public class mainMenu : MonoBehaviour {
         quitMenu = quitMenu.GetComponent<Canvas>();
         startText = startText.GetComponent<Button>();
         quitText = quitText.GetComponent<Button>();
+        settingsMenu = Object.FindObjectOfType<SettingsMenu>();
+        playerHealth = Object.FindObjectOfType<playerHealth>();
         quitMenu.enabled = false;
     }
 
@@ -36,6 +40,10 @@ public class mainMenu : MonoBehaviour {
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("main");
+        playerHealth.health = 100;
+        playerHealth.armor = 100;
+        if (PlayerPrefs.HasKey("Volume"))
+            settingsMenu.SetVolume(PlayerPrefs.GetFloat("Volume"));
     }
 
     public void Load()
@@ -44,6 +52,8 @@ public class mainMenu : MonoBehaviour {
         {
             Time.timeScale = 1f;
             SceneManager.LoadScene(PlayerPrefs.GetString("Scene"));
+            playerHealth.health = PlayerPrefs.GetFloat("Health");
+            playerHealth.armor = PlayerPrefs.GetFloat("Armor");
         }
         else
         {
