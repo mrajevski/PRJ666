@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour {
 
     // Use this for initialization
-    public static bool GameIsPaused = false; 
+    public Scene scene;
+    public PlayerMovement playerMovement;
+    public static bool GameIsPaused; 
     public GameObject pauseMenuUI;
     public GameObject settingUI;
     public Button resumeText;
@@ -23,6 +25,9 @@ public class PauseMenu : MonoBehaviour {
         pauseMenuUI.SetActive(false);
         exitText = exitText.GetComponent<Button>();
         resumeText = resumeText.GetComponent<Button>();
+        GameIsPaused = false;
+        scene = SceneManager.GetActiveScene();
+        playerMovement = Object.FindObjectOfType<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -52,6 +57,14 @@ public class PauseMenu : MonoBehaviour {
     {
         settingUI.SetActive(true);
     }
+
+    public void Save()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetString("Scene", scene.name);
+        PlayerPrefs.Save();
+    }
+
 
     void Pause() {
         pauseMenuUI.SetActive(true);

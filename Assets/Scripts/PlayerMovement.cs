@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-	Vector2 currentPos, movement;
+	public Vector2 currentPos, movement;
 	Vector3 mousePos;
 	Rigidbody player;
 	Camera cam;
@@ -78,8 +78,8 @@ public class PlayerMovement : MonoBehaviour {
 		}
     }
 
-	void move(float h, float v) {
-		movement.Set (h, v);
+	void move(float horizontal, float vertical) {
+		movement.Set (horizontal, vertical);
 		movement = movement.normalized * speed * Time.deltaTime;
 		player.MovePosition(currentPos + movement);
 	}
