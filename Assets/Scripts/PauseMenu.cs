@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour {
     // Use this for initialization
     public Scene scene;
     public PlayerMovement playerMovement;
+    public playerHealth playerHealth;
     public static bool GameIsPaused; 
     public GameObject pauseMenuUI;
     public GameObject settingUI;
@@ -28,6 +29,7 @@ public class PauseMenu : MonoBehaviour {
         GameIsPaused = false;
         scene = SceneManager.GetActiveScene();
         playerMovement = Object.FindObjectOfType<PlayerMovement>();
+        playerHealth = Object.FindObjectOfType<playerHealth>();
     }
 
     // Update is called once per frame
@@ -61,6 +63,8 @@ public class PauseMenu : MonoBehaviour {
     public void Save()
     {
         PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetFloat("Health", playerHealth.health);
+        PlayerPrefs.SetFloat("Armor", playerHealth.armor);
         PlayerPrefs.SetString("Scene", scene.name);
         PlayerPrefs.Save();
     }
