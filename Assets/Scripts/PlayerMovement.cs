@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
+    public static PlayerMovement movementControl;
+
 	public Vector2 currentPos, movement;
 	Vector3 mousePos;
 	Rigidbody player;
@@ -18,7 +20,6 @@ public class PlayerMovement : MonoBehaviour {
 
     void Awake() {
         animator = GetComponent<Animator>();
-
     }
 
     // Use this for initialization
