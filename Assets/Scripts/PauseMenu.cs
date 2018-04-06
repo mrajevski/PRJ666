@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour {
     // Use this for initialization
     public static bool GameIsPaused = false; 
     public GameObject pauseMenuUI;
+    public GameObject settingUI;
     public Button resumeText;
     public Button exitText;
     public void Resume()
@@ -39,13 +40,17 @@ public class PauseMenu : MonoBehaviour {
 
     public void toMainMenu()
     {
-        Time.timeScale = 1f;
         SceneManager.LoadScene("menu");
     }
 
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void toSetting()
+    {
+        settingUI.SetActive(true);
     }
 
     void Pause() {
