@@ -4,13 +4,29 @@ using UnityEngine;
 
 public class playerHealth : MonoBehaviour {
 
+    public static playerHealth healthController;
+
     public float health = 100;
     public float armor = 100;
-    // Use this for initialization
-    void Start() {
 
+    private void Start()
+    {
+        health = 100;
+        armor = 100;
     }
 
+    void Awake()
+    {
+        if(healthController == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            healthController = this;
+        }
+        else if (healthController != this)
+        {
+            Destroy(gameObject);
+        }
+    }
     // Update is called once per frame
     void Update() {
         if (health < 0) {

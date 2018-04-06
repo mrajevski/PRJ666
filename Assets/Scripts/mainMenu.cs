@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class mainMenu : MonoBehaviour {
 
     public SettingsMenu settingsMenu;
-    public playerHealth playerHealth;
     public Canvas quitMenu;
     public Button startText;
     public Button quitText;
+
+    public playerHealth healthController;
+    public PlayerMovement playerController;
 
     // Use this for initialization
     void Start() {
@@ -18,8 +22,10 @@ public class mainMenu : MonoBehaviour {
         startText = startText.GetComponent<Button>();
         quitText = quitText.GetComponent<Button>();
         settingsMenu = Object.FindObjectOfType<SettingsMenu>();
-        playerHealth = Object.FindObjectOfType<playerHealth>();
         quitMenu.enabled = false;
+
+        healthController = Object.FindObjectOfType<playerHealth>();
+        playerController = Object.FindObjectOfType<PlayerMovement>();
     }
 
     public void ExitPress()
@@ -40,17 +46,26 @@ public class mainMenu : MonoBehaviour {
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("main");
-        playerHealth.health = 100;
-        playerHealth.armor = 100;
+        Vector2 pos;
+        pos.x = -11.81f;
+        pos.y = -12f;
+
+        
+        playerController.transform.position = pos;
+
+        healthController.health = 100;
+        healthController.armor = 100;
+
         if (PlayerPrefs.HasKey("Volume"))
             settingsMenu.SetVolume(PlayerPrefs.GetFloat("Volume"));
     }
 
     public void Load()
     {
+        /*
+        //Loading from PlayerPrefs
         if (PlayerPrefs.HasKey("Scene"))
         {
-            Time.timeScale = 1f;
             SceneManager.LoadScene(PlayerPrefs.GetString("Scene"));
             playerHealth.health = PlayerPrefs.GetFloat("Health");
             playerHealth.armor = PlayerPrefs.GetFloat("Armor");
@@ -59,6 +74,31 @@ public class mainMenu : MonoBehaviour {
         {
             Time.timeScale = 1f;
             SceneManager.LoadScene("main");
+        }
+        */
+        //Loading from file
+        if (File.Exists(Application.persistentDataPath + "/save.dat"))
+        {
+
+            Time.timeScale = 1f;
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/save.dat", FileMode.Open);
+            PlayerData data = (PlayerData)bf.Deserialize(file);
+            file.Close();
+
+            playerHealth.healthController.health = data.health;
+            playerHealth.healthController.armor = data.armor;
+
+            Vector2 pos;
+            pos.x = data.currentPositionX;
+            pos.y = data.currentPositionY;
+
+            playerController.transform.position = pos;
+
+            //= data.currentPositionX;
+            //PlayerMovement.movementControl.currentPos.y = data.currentPositionY;
+
+            SceneManager.LoadScene(data.currentScene);
         }
     }
 

@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class ArmorBarScript : MonoBehaviour {
     [SerializeField]
     private float currentValue;
-    private float damage;
-    private float maxValue;
 
     public Text CurrentValueText;
     private playerHealth health;
@@ -21,7 +19,6 @@ public class ArmorBarScript : MonoBehaviour {
         health = FindObjectOfType<playerHealth>();
         healthbar = FindObjectOfType<BarScript>();
         currentValue = health.getArmor();
-        maxValue = health.getArmor();
     }
 
     // Update is called once per frame
