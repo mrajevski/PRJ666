@@ -108,6 +108,11 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &14983679 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1442786387241894, guid: 3bf56dc0b772107469f05fc19147c502,
+    type: 2}
+  m_PrefabInternal: {fileID: 460200178}
 --- !u!224 &17373123 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224839583211446468, guid: 96509f41219f9ff44b899982cd1146f6,
@@ -227,7 +232,9 @@ MonoBehaviour:
   quitMenu: {fileID: 1709597367}
   startText: {fileID: 444019740}
   quitText: {fileID: 1509300610}
-  playerPos: {fileID: 0}
+  healthController: {fileID: 0}
+  playerController: {fileID: 0}
+  player: {fileID: 14983679}
 --- !u!114 &221636510
 MonoBehaviour:
   m_ObjectHideFlags: 0

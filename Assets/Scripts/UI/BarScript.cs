@@ -38,10 +38,15 @@ public class BarScript : MonoBehaviour {
         if (currentValue <= 0)
         {
             animator.SetBool("Dead", true);
-            Destroy(player.GetComponent<PlayerMovement>());
-            Destroy(player.GetComponent<playerShoot>());
+            player = GameObject.FindGameObjectWithTag("Player");
+            player.GetComponent<PlayerMovement>().enabled = false;
+            player.GetComponent<playerShoot>().enabled  = false;
         }
-	}
+        else
+        {
+            animator.SetBool("Dead", false);
+        }
+    }
 
     private void HandleBar() {
         if (!armorState) {
