@@ -42,7 +42,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 11
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -54,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 8
+    serializedVersion: 9
     m_Resolution: 2
     m_BakeResolution: 40
     m_TextureWidth: 1024
@@ -87,7 +87,7 @@ LightmapSettings:
     m_PVRFilteringAtrousNormalSigma: 1
     m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 0}
-  m_ShadowMaskMode: 2
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -286,6 +286,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: toSetting
       objectReference: {fileID: 0}
+    - target: {fileID: 114933298263787938, guid: 549b3dec976b51f428f0b351da12948e,
+        type: 2}
+      propertyPath: SaveText
+      value: 
+      objectReference: {fileID: 489620568}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 549b3dec976b51f428f0b351da12948e, type: 2}
   m_IsPrefabParent: 0
@@ -896,6 +901,8 @@ SpriteRenderer:
   m_Size: {x: 12, y: 5.98}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &375557583
 Transform:
   m_ObjectHideFlags: 0
@@ -1073,6 +1080,8 @@ SpriteRenderer:
   m_Size: {x: 40, y: 40}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &464155965
 Transform:
   m_ObjectHideFlags: 0
@@ -1286,6 +1295,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.4687033, y: 5.3703346}
   m_EdgeRadius: 0
+--- !u!114 &489620568 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114136295960780156, guid: 549b3dec976b51f428f0b351da12948e,
+    type: 2}
+  m_PrefabInternal: {fileID: 31837323}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &493116490
 Prefab:
   m_ObjectHideFlags: 0
@@ -1468,6 +1483,8 @@ SpriteRenderer:
   m_Size: {x: 40, y: 40}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &631791234
 Transform:
   m_ObjectHideFlags: 0
@@ -1526,6 +1543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointName: Exit H1
+  startPoint: {fileID: 0}
 --- !u!1001 &648233806
 Prefab:
   m_ObjectHideFlags: 0
@@ -1746,6 +1764,8 @@ SpriteRenderer:
   m_Size: {x: 7.32, y: 3.17}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &673987534
 Transform:
   m_ObjectHideFlags: 0
@@ -1901,6 +1921,8 @@ SpriteRenderer:
   m_Size: {x: 96, y: 96}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &723906879
 Transform:
   m_ObjectHideFlags: 0
@@ -2408,6 +2430,8 @@ SpriteRenderer:
   m_Size: {x: 12, y: 5.98}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &874834060
 Transform:
   m_ObjectHideFlags: 0
@@ -2790,6 +2814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointName: Exit Shop 1
+  startPoint: {fileID: 0}
 --- !u!1 &1033266382 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1442786387241894, guid: 3bf56dc0b772107469f05fc19147c502,
@@ -3156,6 +3181,8 @@ SpriteRenderer:
   m_Size: {x: 12, y: 5.98}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &1133737849
 Transform:
   m_ObjectHideFlags: 0
@@ -3485,6 +3512,8 @@ SpriteRenderer:
   m_Size: {x: 96, y: 96}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &1251498234
 Transform:
   m_ObjectHideFlags: 0
@@ -3554,6 +3583,8 @@ SpriteRenderer:
   m_Size: {x: 2.35, y: 1.08}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &1254427627
 Transform:
   m_ObjectHideFlags: 0
@@ -3910,6 +3941,8 @@ SpriteRenderer:
   m_Size: {x: 96, y: 96}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &1318300132
 Transform:
   m_ObjectHideFlags: 0
@@ -4114,6 +4147,8 @@ SpriteRenderer:
   m_Size: {x: 12, y: 5.98}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &1420005034
 Transform:
   m_ObjectHideFlags: 0
@@ -4260,6 +4295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointName: Exit H2
+  startPoint: {fileID: 0}
 --- !u!1 &1496002619
 GameObject:
   m_ObjectHideFlags: 0
@@ -4709,6 +4745,8 @@ SpriteRenderer:
   m_Size: {x: 0.59, y: 0.43}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
 --- !u!4 &1600852647
 Transform:
   m_ObjectHideFlags: 1
@@ -4968,6 +5006,8 @@ SpriteRenderer:
   m_Size: {x: 0.61, y: 0.59}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &1816084743
 Transform:
   m_ObjectHideFlags: 0
@@ -5794,6 +5834,8 @@ SpriteRenderer:
   m_Size: {x: 7.32, y: 3.17}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &2129422169
 Transform:
   m_ObjectHideFlags: 0

@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStartPoint : MonoBehaviour {
+
     private PlayerMovement thePlayer;
     private CameraMovement theCamera;
 
     public string pointName;
+
+    public GameObject startPoint;
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +28,6 @@ public class PlayerStartPoint : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+
+    }
 }

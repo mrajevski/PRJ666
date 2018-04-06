@@ -5,14 +5,16 @@ using UnityEngine;
 public class LoadNewArea : MonoBehaviour {
 
     public string levelToLoad;
-
     public string exitPoint;
-
+    private Vector2 pos;
     private PlayerMovement thePlayer;
-	// Use this for initialization
-	void Start () {
-        thePlayer = Object.FindObjectOfType<PlayerMovement>();
 
+    PlayerStartPoint startPointController;
+
+    // Use this for initialization
+    void Start () {
+        thePlayer = Object.FindObjectOfType<PlayerMovement>();
+        startPointController = Object.FindObjectOfType<PlayerStartPoint>();
     }
 	
 	// Update is called once per frame
@@ -21,10 +23,12 @@ public class LoadNewArea : MonoBehaviour {
 	}
 
     void OnTriggerEnter(Collider other) {
-        if (other.gameObject.name == "Player")
-        {
-            Application.LoadLevel(levelToLoad);
+
+       if (other.gameObject.name == "Player")
+       {
+            thePlayer = Object.FindObjectOfType<PlayerMovement>();
             thePlayer.startPoint = exitPoint;
+            Application.LoadLevel(levelToLoad);
         }
     }
 }

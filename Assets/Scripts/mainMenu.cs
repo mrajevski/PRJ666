@@ -16,6 +16,8 @@ public class mainMenu : MonoBehaviour {
     public playerHealth healthController;
     public PlayerMovement playerController;
 
+    public GameObject player;
+
     // Use this for initialization
     void Start() {
         quitMenu = quitMenu.GetComponent<Canvas>();
@@ -56,26 +58,22 @@ public class mainMenu : MonoBehaviour {
         healthController.health = 100;
         healthController.armor = 100;
 
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        player.GetComponent<PlayerMovement>().enabled = true;
+        player.GetComponent<playerShoot>().enabled = true;
+        playerController.animator.ResetTrigger("AnimState");
         if (PlayerPrefs.HasKey("Volume"))
             settingsMenu.SetVolume(PlayerPrefs.GetFloat("Volume"));
     }
 
     public void Load()
     {
-        /*
-        //Loading from PlayerPrefs
-        if (PlayerPrefs.HasKey("Scene"))
-        {
-            SceneManager.LoadScene(PlayerPrefs.GetString("Scene"));
-            playerHealth.health = PlayerPrefs.GetFloat("Health");
-            playerHealth.armor = PlayerPrefs.GetFloat("Armor");
-        }
-        else
-        {
-            Time.timeScale = 1f;
-            SceneManager.LoadScene("main");
-        }
-        */
+
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        player.GetComponent<PlayerMovement>().enabled = true;
+        player.GetComponent<playerShoot>().enabled = true;
         //Loading from file
         if (File.Exists(Application.persistentDataPath + "/save.dat"))
         {

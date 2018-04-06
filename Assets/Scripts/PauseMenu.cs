@@ -19,6 +19,9 @@ public class PauseMenu : MonoBehaviour {
     public GameObject player;
     public Button resumeText;
     public Button exitText;
+
+    public Button SaveText;
+
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
@@ -28,6 +31,7 @@ public class PauseMenu : MonoBehaviour {
 
     void Start() {
         pauseMenuUI.SetActive(false);
+        SaveText = SaveText.GetComponent<Button>();
         exitText = exitText.GetComponent<Button>();
         resumeText = resumeText.GetComponent<Button>();
         GameIsPaused = false;
@@ -40,6 +44,10 @@ public class PauseMenu : MonoBehaviour {
     void Update () {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             pauseMenuUI.SetActive(true);
+            if (playerHealth.health <= 0)
+                SaveText.GetComponent<Button>().enabled = false;
+            else
+                SaveText.GetComponent<Button>().enabled = true;
             if (GameIsPaused) {
                 Resume();
             }

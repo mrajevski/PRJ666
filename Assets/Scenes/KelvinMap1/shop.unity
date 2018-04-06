@@ -566,7 +566,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4582226284241064, guid: ae7572e1a8378ea41acf34b78adbfed3, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ae7572e1a8378ea41acf34b78adbfed3, type: 2}
@@ -699,6 +699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointName: LucasShop1
+  startPoint: {fileID: 493830495}
 --- !u!4 &493830497
 Transform:
   m_ObjectHideFlags: 0
@@ -810,7 +811,7 @@ RectTransform:
   - {fileID: 947331240}
   - {fileID: 1443276686}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2020,7 +2021,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6632977e752c7e340b3a1b6fa3ac00ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMovement: {fileID: 0}
+  playerHealth: {fileID: 0}
   pauseMenuUI: {fileID: 1688144544}
+  settingUI: {fileID: 0}
+  player: {fileID: 0}
   resumeText: {fileID: 867926659}
   exitText: {fileID: 814842990}
 --- !u!1 &1526731679
