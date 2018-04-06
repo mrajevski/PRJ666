@@ -40,8 +40,16 @@ public class mainMenu : MonoBehaviour {
 
     public void Load()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(PlayerPrefs.GetString("Scene"));
+        if (PlayerPrefs.HasKey("Scene"))
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(PlayerPrefs.GetString("Scene"));
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("main");
+        }
     }
 
     public void ExitGame()
