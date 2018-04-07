@@ -6,19 +6,22 @@ public class LoadNewArea : MonoBehaviour {
 
     public string levelToLoad;
     public string exitPoint;
-    private Vector2 pos;
     private PlayerMovement thePlayer;
 
     PlayerStartPoint startPointController;
+
+
+    public GameObject player;
 
     // Use this for initialization
     void Start () {
         thePlayer = Object.FindObjectOfType<PlayerMovement>();
         startPointController = Object.FindObjectOfType<PlayerStartPoint>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
@@ -28,6 +31,9 @@ public class LoadNewArea : MonoBehaviour {
        {
             thePlayer = Object.FindObjectOfType<PlayerMovement>();
             thePlayer.startPoint = exitPoint;
+
+            player.GetComponent<PlayerMovement>().startPoint = exitPoint;
+
             Application.LoadLevel(levelToLoad);
         }
     }
