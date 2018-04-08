@@ -5,13 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class RandomMap : MonoBehaviour {
 
+    public static RandomMap randomMap;
+
     public List<string> levelOne;
     public List<string> levelTwo;
     public List<string> levelThree;
     public string levelFour;
     public int currentLevel;
-	// Use this for initialization
-	void Start () {
+    public Vector2 pos;
+
+    // Use this for initialization
+    void Start () {
         //Names for first levels
         levelOne.Add("main");
         levelOne.Add("LucasMap1");
@@ -30,7 +34,7 @@ public class RandomMap : MonoBehaviour {
         //levelThree.Add("ParmMap3");//Need to be added
         //levelThree.Add("MattMap3");//Need to be added
 
-        levelFour = "Final";
+        levelFour = "main";
 
         currentLevel = 0;
     }
@@ -42,16 +46,15 @@ public class RandomMap : MonoBehaviour {
 
     public string randomLevel (List<string> level)
     {
-        int randomIndex = Random.Range(0, 3);
+        int randomIndex = Random.Range(0, 2);
         return level[randomIndex];
     }
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         string levelToLoad;
-        if (currentLevel == 0)
-            levelToLoad = randomLevel(levelOne);
-        else if (currentLevel == 1)
-            levelToLoad = randomLevel(levelOne);
+
+        if (currentLevel == 1)
+            levelToLoad = randomLevel(levelTwo);
         else if (currentLevel == 2)
             levelToLoad = randomLevel(levelOne);
         else
@@ -62,5 +65,21 @@ public class RandomMap : MonoBehaviour {
             currentLevel++;
             SceneManager.LoadScene(levelToLoad);
         }
+    }
+
+    public string randomFirstLevel()
+    {
+        return randomLevel(levelOne);
+    }
+
+    public Vector2 relocatePlayerPosition(string level)
+    {
+        if(level.Equals("main"))
+            pos = new Vector2(-11.81f, -12f);
+        else if (level.Equals("LucasMap1"))
+            pos = new Vector2(-52, -5);
+
+        return pos;
+
     }
 }

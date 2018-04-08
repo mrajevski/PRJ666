@@ -18,6 +18,9 @@ public class mainMenu : MonoBehaviour {
 
     public GameObject player;
 
+
+    public RandomMap randomMap;
+
     // Use this for initialization
     void Start() {
         quitMenu = quitMenu.GetComponent<Canvas>();
@@ -28,6 +31,7 @@ public class mainMenu : MonoBehaviour {
 
         healthController = Object.FindObjectOfType<playerHealth>();
         playerController = Object.FindObjectOfType<PlayerMovement>();
+        randomMap = Object.FindObjectOfType<RandomMap>();
     }
 
     public void ExitPress()
@@ -47,13 +51,10 @@ public class mainMenu : MonoBehaviour {
     public void StartLevel()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("main");
-        Vector2 pos;
-        pos.x = -11.81f;
-        pos.y = -12f;
-
+        string level = randomMap.randomFirstLevel();
+        SceneManager.LoadScene(level);
         
-        playerController.transform.position = pos;
+        playerController.transform.position = randomMap.relocatePlayerPosition(level);
 
         healthController.health = 100;
         healthController.armor = 100;
