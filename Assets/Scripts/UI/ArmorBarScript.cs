@@ -25,7 +25,7 @@ public class ArmorBarScript : MonoBehaviour {
     void Update()
     {
         currentValue = health.getArmor();
-        CurrentValueText.text = currentValue + "%";
+        CurrentValueText.text = (int)currentValue + "%";
         HandleBar();
         if (currentValue <= 0)
         {

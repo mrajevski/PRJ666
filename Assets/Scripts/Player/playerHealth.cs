@@ -44,7 +44,7 @@ public class playerHealth : MonoBehaviour {
         return armor;
     }
 
-	public void takeDamage(int damage) {
+	public void takeDamage(float damage) {
 
         if (armor <= 0)
             health -= damage;
@@ -55,5 +55,12 @@ public class playerHealth : MonoBehaviour {
             health = 0;
         if (armor <= 0)
             armor = 0;
+    }
+
+    public void posionTick(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+            health = 0;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BarScript : MonoBehaviour {
@@ -9,7 +10,9 @@ public class BarScript : MonoBehaviour {
     private float damage;
     private float maxValue;
     private bool armorState;
-
+    private bool isDead;
+    private double counter;
+    public bool posionState;
     public Text CurrentValueText;
 
     public GameObject player;
@@ -22,6 +25,9 @@ public class BarScript : MonoBehaviour {
     private Image content;
 	// Use this for initialization
 	void Start () {
+        isDead = false;
+        counter = 0;
+        posionState = false;
         armorState = true;
         player = GameObject.FindGameObjectWithTag("Player");
         health = Object.FindObjectOfType<playerHealth>();
@@ -32,11 +38,18 @@ public class BarScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        if(isDead)
+            counter += Time.deltaTime + 0.1;
+
+        if (counter >= 40)
+            SceneManager.LoadScene("dead");
+
         currentValue = health.getHealth();
-        CurrentValueText.text = currentValue + "%";
+        CurrentValueText.text = (int)currentValue + "%";
         HandleBar();
         if (currentValue <= 0)
         {
+            isDead = true;
             animator.SetBool("Dead", true);
             player = GameObject.FindGameObjectWithTag("Player");
             player.GetComponent<PlayerMovement>().enabled = false;
@@ -44,12 +57,13 @@ public class BarScript : MonoBehaviour {
         }
         else
         {
+            isDead = false;
             animator.SetBool("Dead", false);
         }
     }
 
     private void HandleBar() {
-        if (!armorState) {
+        if (!armorState || posionState) {
             content.fillAmount = Map(currentValue, maxValue);
         }
     }
