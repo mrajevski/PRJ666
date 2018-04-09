@@ -15,10 +15,11 @@ public class ScavMovement : MonoBehaviour {
 
     public GameObject player;
     public Transform zone;
-    public float minDist;
+    public int minDist;
     private float dir;
     public float zoneSize;
     private int above, below;
+    ScavShoot scavShoot = new ScavShoot();
 
     private float xDir;
     private float yDir;
@@ -44,6 +45,8 @@ public class ScavMovement : MonoBehaviour {
             //look at player
             transform.LookAt(player.transform.position);
             transform.Rotate(new Vector3(0, -90, 0), Space.Self);
+
+            scavShoot.Shoot(minDist);
         }
         else {//if not then the enemy is idle
             //checks if enemy should be moving when idle
