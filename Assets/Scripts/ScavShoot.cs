@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class ScavShoot : MonoBehaviour {
 
-    public float reloadTime = Random.Range(0.5f, 2.0f);
-    public float accuracy = Random.Range(60f, 80f);
-    public float rateOfFire = Random.Range(0.04f, 0.1f);
-    public int mag = Random.Range(5, 20);
+    public float reloadTime, accuracy, rateOfFire;
+    public int mag;
     private float damage;
     private bool reload = false;
     private float timer, shotTimer = 0f;
@@ -21,6 +19,11 @@ public class ScavShoot : MonoBehaviour {
 
     void Start()
     {
+        reloadTime = Random.Range(0.5f, 2.0f);
+        accuracy = Random.Range(60f, 80f);
+        rateOfFire = Random.Range(0.04f, 0.1f);
+        mag = Random.Range(5, 20);
+
         damage = 4f;
         if (rateOfFire > 0.06f) damage += 2f;
         if (rateOfFire > 0.08f && rateOfFire < 0.11f) damage += 2f;
@@ -36,17 +39,21 @@ public class ScavShoot : MonoBehaviour {
     void Update()
     {
         if (reload == true) timer += Time.deltaTime;
+        if (timer >= reloadTime) reload = false;
         else timer = 0f;
 
         if (timer == reloadTime) reload = false;
-
         shotTimer += Time.deltaTime;
-        
+    }
+
+    public void disableShoot()
+    {
+        gunLine.enabled = false;
     }
 
     public void Shoot(int range)
     {
-        if (shotTimer == rateOfFire)
+        if (shotTimer >= rateOfFire)
         {
             shotTimer = 0f;
             if (curMag == 0) reload = true;
@@ -69,6 +76,10 @@ public class ScavShoot : MonoBehaviour {
                     shotPoint.y = shootHit.point.y;
                     shotPoint.z = shootHit.point.z;
                     gunLine.SetPosition(1, shotPoint);
+                }
+                else
+                {
+                    gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
                 }
             }
         }
