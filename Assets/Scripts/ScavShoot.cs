@@ -38,9 +38,9 @@ public class ScavShoot : MonoBehaviour {
 
     void Update()
     {
-        if (reload == true) timer += Time.deltaTime;
-        if (timer >= reloadTime) reload = false;
+        if (reload == true) { timer += Time.deltaTime; disableShoot(); }
         else timer = 0f;
+        if (timer >= reloadTime) { reload = false; curMag = mag; }
 
         if (timer == reloadTime) reload = false;
         shotTimer += Time.deltaTime;

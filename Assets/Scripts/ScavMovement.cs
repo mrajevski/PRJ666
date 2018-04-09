@@ -19,6 +19,7 @@ public class ScavMovement : MonoBehaviour {
     private float dir;
     public float zoneSize;
     private int above, below;
+    playerHealth playerDamage;
     //ScavShoot scavShoot = new ScavShoot();
 
     private float xDir;
@@ -26,6 +27,7 @@ public class ScavMovement : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        playerDamage = Object.FindObjectOfType<playerHealth>();
         player = GameObject.FindGameObjectWithTag("Player");
         zone = GameObject.FindGameObjectWithTag("ScavZone").transform;
         rb = GetComponent<Rigidbody>();
@@ -45,8 +47,8 @@ public class ScavMovement : MonoBehaviour {
             //look at player
             transform.LookAt(player.transform.position);
             transform.Rotate(new Vector3(0, -90, 0), Space.Self);
-
-            GetComponent<ScavShoot>().Shoot(minDist);
+            if (playerDamage.getHealth() >= 0)
+                GetComponent<ScavShoot>().Shoot(minDist - 3);
             //scavShoot.Shoot(minDist);
         }
         else {//if not then the enemy is idle
