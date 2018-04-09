@@ -25,9 +25,9 @@ public class ScavShoot : MonoBehaviour {
         mag = Random.Range(5, 20);
 
         damage = 4f;
-        if (rateOfFire > 0.06f) damage += 2f;
-        if (rateOfFire > 0.08f && rateOfFire < 0.11f) damage += 2f;
-        if (accuracy < 74f) damage += 0.5f;
+        if (rateOfFire > 0.06f) damage += 2f; //if rate of fire greater than value, add 2 damage
+        if (rateOfFire > 0.08f && rateOfFire < 0.11f) damage += 2f; // and another 2 if rof is even greater
+        if (accuracy < 74f) damage += 0.5f; //similar to rate of fire damage increase
         if (accuracy < 68f) damage += 0.5f;
         if (accuracy < 64f) damage += 0.5f;
 
