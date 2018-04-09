@@ -60,7 +60,7 @@ public class BaseZomAI : MonoBehaviour {
             transform.Rotate(new Vector3(0, -90, 0), Space.Self);
 
             //chase player
-            if(playerDamage.health > 0)
+            if(playerDamage.health > 0 && (Vector3.Distance(rb.transform.position, player.transform.position) > .55f))
                 transform.Translate(new Vector3((speed) * Time.deltaTime, 0, 0));
             
         } else if (still == false) {//if not then the enemy is idle
@@ -98,7 +98,7 @@ public class BaseZomAI : MonoBehaviour {
         }
 
         //if player is too close then hit
-        if ((Vector3.Distance(rb.transform.position, player.transform.position) < .5f) && playerDamage.getHealth() >= 0)
+        if ((Vector3.Distance(rb.transform.position, player.transform.position) < .55f) && playerDamage.getHealth() >= 0)
         {
             --damageCounter;
             if(damageCounter == 0)
