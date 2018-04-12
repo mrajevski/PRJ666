@@ -48,7 +48,7 @@ public class ScavMovement : MonoBehaviour {
             transform.LookAt(player.transform.position);
             transform.Rotate(new Vector3(0, -90, 0), Space.Self);
             if (playerDamage.getHealth() >= 0)
-                GetComponent<ScavShoot>().Shoot(minDist - 3);
+                GetComponent<ScavShoot>().Shoot(minDist - 1);
             //scavShoot.Shoot(minDist);
         }
         else {//if not then the enemy is idle

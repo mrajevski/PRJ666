@@ -34,14 +34,17 @@ public class playerShoot : MonoBehaviour {
 		timer += Time.deltaTime;
 
 		// Shoot //
-		if(Input.GetKey(KeyCode.Mouse0) && timer >= rateOfFire && Time.timeScale != 0) {
-			if (chamber && !reloading && !sprinting) {
+		if(Input.GetKey(KeyCode.Mouse0) && timer >= rateOfFire && Time.timeScale != 0)
+        {
+			if (chamber && !reloading && !sprinting)
+            {
 				Shoot();
 			}
 		}
 
 		// Reload //
-		if (Input.GetKey(KeyCode.R) && !reloading) {
+		if (Input.GetKey(KeyCode.R) && !reloading)
+        {
 			timer = 0.0f;
 			mag = (chamber) ? magCapacity : magCapacity - 1 ;
 			chamber = true;
@@ -56,41 +59,50 @@ public class playerShoot : MonoBehaviour {
 		}
 
 		// Rate of Fire //
-		if (timer >= rateOfFire * shotDisplayTime + 0.02f) {
+		if (timer >= rateOfFire * shotDisplayTime + 0.02f)
+        {
 			disableShot();
 		}
 
 		// Aiming //
-		if (Input.GetKeyDown(KeyCode.Mouse1)) {
+		if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
 			currAccuracy += 5.0f;
 		}
-		if (Input.GetKeyUp(KeyCode.Mouse1)) {
+		if (Input.GetKeyUp(KeyCode.Mouse1))
+        {
 			currAccuracy -= 5.0f;
 		}
 
 		// Accuracy Cone //
-		if (currAccuracy < 100.0f) { 
+		if (currAccuracy < 100.0f)
+        { 
 			currAccuracy += 0.1f;
 		}
 
 		// Sprinting //
-		if (Input.GetKeyDown(KeyCode.LeftShift)) {
+		if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
 			sprinting = true;
 		}
-		if (Input.GetKeyUp(KeyCode.LeftShift)) {
+		if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
 			sprinting = false;
 		}
 
 		// Weapon Switching //
-		if (Input.GetKeyDown(KeyCode.Alpha1)) {
+		if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
 			//if (gunID != g1.gunID)
 				switchGun(0);
 		}
-		if (Input.GetKeyDown(KeyCode.Alpha2)) {
+		if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
 			//if (gunID != g2.gunID)
 				switchGun(1);
 		}
-		if (Input.GetKeyDown(KeyCode.Alpha3)) {
+		if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
 			//if (gunID != g3.gunID)
 				switchGun(2);
 		}
@@ -103,8 +115,10 @@ public class playerShoot : MonoBehaviour {
 	}
 
 
-	void switchGun(int slot) {
-		switch (slot) {
+	void switchGun(int slot)
+    {
+		switch (slot)
+        {
 		case 0:
 			setGun (g1.gunID, g1.ammoID, g1.rateOfFire, g1.damage, g1.magCapacity, g1.reloadTime, g1.accuracy, g1.gunAudio, g1.gunAudioSingle, g1.reloadAudio);
 			break;
@@ -121,7 +135,8 @@ public class playerShoot : MonoBehaviour {
 	{
 		ammo.shot (ammoID);
 		timer = 0.0f;
-		if (chamber) {			
+		if (chamber)
+        {			
 			if (mag != 0)
 				mag--;
 			else
