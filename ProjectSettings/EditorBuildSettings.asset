@@ -44,3 +44,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LucasMap2/House4.unity
     guid: f0758f15efe13804898c395d900305ad
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 00000000000000000000000000000000

@@ -13,6 +13,7 @@ public class RandomMap : MonoBehaviour {
     public string levelFour;
     public int currentLevel;
     public Vector2 pos;
+    public GameObject player;
 
     // Use this for initialization
     void Start () {
@@ -36,7 +37,8 @@ public class RandomMap : MonoBehaviour {
 
         levelFour = "main";
 
-        currentLevel = 0;
+        currentLevel = 1;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -63,6 +65,7 @@ public class RandomMap : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.E))
         {
             currentLevel++;
+            player.GetComponent<PlayerMovement>().JerryCans = 0;
             SceneManager.LoadScene(levelToLoad);
         }
     }

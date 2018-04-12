@@ -1,27 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class objective : MonoBehaviour {
-    public int jerryCan;
+public class Objective : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-        jerryCan = 0;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public GameObject player;
+    public int jerryCans;
+    // Use this for initialization
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        jerryCans = player.GetComponent<PlayerMovement>().JerryCans;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
 
     void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+
+        if (other.gameObject.name == "Player")
         {
-            jerryCan++;
-            Destroy(other);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                jerryCans = 1;
+                player.GetComponent<PlayerMovement>().JerryCans += jerryCans;
+                Destroy(this.gameObject);
+            }
         }
+
     }
 }
