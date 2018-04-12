@@ -7,13 +7,14 @@ public class slotData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 	public itemController inventory;
 	public int position;
 	private Vector2 origin;
-	public bool dragging = false, dataType = false;
+	public bool dragging = false, dataType = false; // true - equipment, false - inventory
 
 	public void OnBeginDrag(PointerEventData eventData) {
-		if (inventory.inventory [position].itemID != -1) {
+		if ((!dataType && inventory.inventory [position].itemID != -1) || (dataType && inventory.equipment [position].itemID != -1)) {
 			dragging = true;
 			origin = this.transform.position;
 			this.transform.position = eventData.position;
+			this.transform.position += new Vector3 (0.0f, 0.0f, 1.0f);
 		}
 	}
 
@@ -25,8 +26,9 @@ public class slotData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
 	public void OnEndDrag(PointerEventData eventData) {
 		if (dragging) {
-			this.transform.position = origin;
 			dragging = false;
+			this.transform.position = origin;
+			this.transform.position -= new Vector3 (0.0f, 0.0f, 1.0f);
 		}
 	}
 

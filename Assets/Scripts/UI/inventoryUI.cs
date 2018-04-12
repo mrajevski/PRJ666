@@ -53,7 +53,7 @@ public class inventoryUI : MonoBehaviour {
 	}
 
 	void updateInventory() {
-		for (int j = 0; j < inventory.size; j++) {
+		for (int j = 0; j < inventory.capacity; j++) {
 			GameObject I = GameObject.Find ("Inventory/Slot " + j.ToString() + "/Item");
 			I.GetComponent<Image>().sprite = inventory.inventory [j].image;
 			GameObject T = GameObject.Find ("Inventory/Slot " + j.ToString() + "/Item/Text");
@@ -70,8 +70,7 @@ public class inventoryUI : MonoBehaviour {
 	void updateEquipment() {
 		for (int j = 0; j < 9; j++) {
 			GameObject I = GameObject.Find ("Hotbar/Slot " + j.ToString () + "/Item");
-			Image i = I.GetComponent<Image> ();
-			i.sprite = inventory.equipment[j].image;
+			I.GetComponent<Image> ().sprite = inventory.equipment[j].image;
 		}
 
 	}

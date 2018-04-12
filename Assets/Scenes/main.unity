@@ -11257,12 +11257,14 @@ MonoBehaviour:
   capacity: 16
   bagID: 0
   size: 0
+  armorLVL: -1
   inventory: []
   equipment: []
   starterG1: {fileID: 598484122}
   starterG2: {fileID: 92415699}
   starterHealth: {fileID: 742341624}
   empty: {fileID: 114177312300764552, guid: 2dd582c5ceea9c14db0453b6692563be, type: 2}
+  ammo: {fileID: 1734354496}
 --- !u!114 &1734354496
 MonoBehaviour:
   m_ObjectHideFlags: 0
