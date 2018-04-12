@@ -21,9 +21,9 @@ public class ExitLevel : MonoBehaviour {
         {
             if ((Input.GetKeyDown(KeyCode.E))&& player.GetComponent<PlayerMovement>().JerryCans > 2)
             {
-                SceneManager.LoadScene("Shop");
                 Vector2 pos = new Vector2(-1.5f, -0.5f);
                 player.transform.position = pos;
+                SceneManager.LoadScene("Shop");
             }
         }
     }
