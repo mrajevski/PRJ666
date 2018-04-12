@@ -19,8 +19,6 @@ public class Objective : MonoBehaviour
     {
         
     }
-
-
     void OnTriggerStay(Collider other)
     {
 
