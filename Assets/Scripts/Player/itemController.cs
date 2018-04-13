@@ -72,6 +72,7 @@ public class itemController : MonoBehaviour{
 		size--;
 	}
 
+    //Inventory to Inventory
 	public void i2i(int i1, int i2) {
 		if (inventory[i1].itemID != -1) {
 			itemObject tmp = inventory [i1];
@@ -105,6 +106,7 @@ public class itemController : MonoBehaviour{
 		}		
 	}
 
+    //Equipment to Equipment
 	public void e2e(int e1, int e2) {
 		if ((e1 < 3 && e2 < 3) || (e1 > 2 && e2 > 2)) {
 			itemObject tmp = equipment [e1];

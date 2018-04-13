@@ -47,7 +47,7 @@ public class playerShoot : MonoBehaviour {
 		shootableMask = LayerMask.GetMask ("Shootable");
 		playerAccuracy = GetComponent<Transform> ();
 		gunLine = GetComponent <LineRenderer> ();
-		//gunAudio = GetComponent<AudioSource> ();
+		gunAudio = GetComponent<AudioSource> ();
 	}
 
 
