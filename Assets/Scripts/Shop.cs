@@ -168,4 +168,9 @@ public class Shop : MonoBehaviour {
         currentWallet += valueCost;
         player.GetComponent<PlayerMovement>().wallet = currentWallet;
     }//end of sellConfirm
+
+    public void buyConfirm()
+    {
+
+    }//end of buyConfirm
 }//end of class
