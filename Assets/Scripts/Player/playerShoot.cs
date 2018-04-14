@@ -6,48 +6,26 @@ public class playerShoot : MonoBehaviour {
 
 	public float reloadTime, accuracy, currAccuracy = 100.0f, rateOfFire;
 	public int range = 100, damage, magCapacity, mag, ammoID, gunID;
-	public short fireMode;
 	public Transform aim, player;
-	bool chamber = true, reloading = false, aiming = false, sprinting = false, switching = false, menu = false, house = false;
-	public GameObject backpack;
-	private itemController inventory;
-	private ammoController ammo;
-	float timer, switchTimer = 2.5f;
+	bool chamber = true, reloading = false, aiming = false, sprinting = false;
+	public ammoController ammo;
+	
+	float timer;
 	Ray shootRay = new Ray();
 	RaycastHit shootHit;
 	int shootableMask;
 	LineRenderer gunLine;
 	public gunObject g1, g2, g3;
-	public AudioSource gunAudio, gunEmpty, reloadAudio;
+	public AudioSource gunAudio, gunAudioSingle, reloadAudio;
 	float shotDisplayTime = 0.1f;
 	private Transform playerAccuracy;
-	public float spread = 0.0f;
-
-	void Start() {
-		ammo = backpack.GetComponent<ammoController> ();
-		inventory = backpack.GetComponent<itemController> ();
-		/*if (inventory.equipment [0].itemID != -1)
-			g1 = inventory.equipment [0].gun;
-		else
-			g1 = new gunObject ();
-
-		if (inventory.equipment [1].itemID != -1)
-			g2 = inventory.equipment [1].gun;
-		else
-			g2 = new gunObject ();
-
-		if (inventory.equipment [2].itemID != -1)
-			g3 = inventory.equipment [2].gun;
-		else
-			g3 = new gunObject ();*/
-	}
 
 	void Awake ()
 	{
 		shootableMask = LayerMask.GetMask ("Shootable");
 		playerAccuracy = GetComponent<Transform> ();
 		gunLine = GetComponent <LineRenderer> ();
-		gunAudio = GetComponent<AudioSource> ();
+		//gunAudio = GetComponent<AudioSource> ();
 	}
 
 
@@ -56,19 +34,17 @@ public class playerShoot : MonoBehaviour {
 		timer += Time.deltaTime;
 
 		// Shoot //
-		if(Input.GetKey(KeyCode.Mouse0) && timer >= rateOfFire && Time.timeScale != 0 && !menu && !house) {
-			if (chamber && !sprinting && !reloading && !switching) {
-				if (ammo.shot (ammoID))
-					Shoot();
-			}
-			else if (Input.GetKeyDown(KeyCode.Mouse0) && mag == 0 && !chamber) {
-				timer = 0.0f;
-				gunEmpty.Play ();
+		if(Input.GetKey(KeyCode.Mouse0) && timer >= rateOfFire && Time.timeScale != 0)
+        {
+			if (chamber && !reloading && !sprinting)
+            {
+				Shoot();
 			}
 		}
 
 		// Reload //
-		if (Input.GetKey(KeyCode.R) && !reloading && !switching) {
+		if (Input.GetKey(KeyCode.R) && !reloading)
+        {
 			timer = 0.0f;
 			mag = (chamber) ? magCapacity : magCapacity - 1 ;
 			chamber = true;
@@ -89,12 +65,12 @@ public class playerShoot : MonoBehaviour {
 		}
 
 		// Aiming //
-		if (Input.GetKeyDown(KeyCode.Mouse1) && !switching && !reloading && !sprinting && !menu) {
-			aiming = true;
+		if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
 			currAccuracy += 5.0f;
 		}
-		if (Input.GetKeyUp(KeyCode.Mouse1)  && aiming && !switching && !reloading && !sprinting && !menu) {
-			aiming = false;
+		if (Input.GetKeyUp(KeyCode.Mouse1))
+        {
 			currAccuracy -= 5.0f;
 		}
 
@@ -105,39 +81,30 @@ public class playerShoot : MonoBehaviour {
 		}
 
 		// Sprinting //
-		if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))) {
+		if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
 			sprinting = true;
 		}
-		if (!Input.GetKey(KeyCode.LeftShift) || (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D))) {
+		if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
 			sprinting = false;
 		}
 
 		// Weapon Switching //
-		if (Input.GetKeyDown(KeyCode.Alpha1) && !switching) {
-			switching = true;
-			timer = 0.0f;
-			setGun (g1);
+		if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+			//if (gunID != g1.gunID)
+				switchGun(0);
 		}
-		if (Input.GetKeyDown(KeyCode.Alpha2) && !switching) {
-			switching = true;
-			timer = 0.0f;
-			setGun (g2);
+		if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+			//if (gunID != g2.gunID)
+				switchGun(1);
 		}
-		if (Input.GetKeyDown(KeyCode.Alpha3) && !switching) {
-			switching = true;
-			timer = 0.0f;
-			setGun (g3);
-		}
-
-		// Weapon Switching Timer //
-		if (switching) {
-			if (timer >= switchTimer)
-				switching = false;			
-		}
-
-		// Check if in Menu //
-		if (Input.GetKeyDown(KeyCode.Tab)) {
-			menu = !menu;
+		if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+			//if (gunID != g3.gunID)
+				switchGun(2);
 		}
 	}
 
@@ -147,8 +114,26 @@ public class playerShoot : MonoBehaviour {
 		gunLine.enabled = false;
 	}
 
+
+	void switchGun(int slot)
+    {
+		switch (slot)
+        {
+		case 0:
+			setGun (g1.gunID, g1.ammoID, g1.rateOfFire, g1.damage, g1.magCapacity, g1.reloadTime, g1.accuracy, g1.gunAudio, g1.gunAudioSingle, g1.reloadAudio);
+			break;
+		case 1:
+			setGun (g2.gunID, g2.ammoID, g2.rateOfFire, g2.damage, g2.magCapacity, g2.reloadTime, g2.accuracy, g2.gunAudio, g2.gunAudioSingle, g2.reloadAudio);
+			break;
+		case 2:
+			setGun (g3.gunID, g3.ammoID, g3.rateOfFire, g3.damage, g3.magCapacity, g3.reloadTime, g3.accuracy, g3.gunAudio, g3.gunAudioSingle, g3.reloadAudio);
+			break;
+		}
+	}
+
 	void Shoot ()
 	{
+		ammo.shot (ammoID);
 		timer = 0.0f;
 		if (chamber)
         {			
@@ -157,14 +142,10 @@ public class playerShoot : MonoBehaviour {
 			else
 				chamber = false;				
 		}
-		gunLine.enabled = true;	
-		gunLine.SetPosition (0, aim.position);
+		gunLine.enabled = true;
+		gunLine.SetPosition (0, transform.position);
 
 		gunAudio.Play ();
-
-		spread = (Random.Range(currAccuracy - 0.1f, 100.0f) - 100.0f);
-		spread *= ((Random.Range (0, 10) < 5) ? -0.5f : 0.5f);
-		aim.Rotate (new Vector3 (0, 0, spread));
 
 		shootRay.origin = aim.transform.position;
 		shootRay.direction = aim.transform.right;
@@ -190,26 +171,21 @@ public class playerShoot : MonoBehaviour {
 		if (currAccuracy > accuracy) { 
 			currAccuracy -= 1.0f;
 		}
-
-		aim.Rotate (new Vector3 (0, 0, -spread));
 	}
 
-	void setGun(gunObject g) {
-		gunID = g.gunID;
-		ammoID = g.ammoID;
-		rateOfFire = g.rateOfFire;
-		damage = g.damage;
-		magCapacity = g.magCapacity;
-		reloadTime = g.reloadTime;
-		accuracy = g.accuracy;
-		gunAudio = g.gunAudio;
-		reloadAudio = g.reloadAudio;
+	void setGun(int xGunID, int xAmmoID, float xRateOfFire, int xDamage, int xMagCapacity, float xReloadTime, float xAccuracy, AudioSource xGunAudio, AudioSource xGunAudioSingle, AudioSource xReloadAudio) {
+		gunID = xGunID;
+		ammoID = xAmmoID;
+		rateOfFire = xRateOfFire;
+		damage = xDamage;
+		magCapacity = xMagCapacity;
+		reloadTime = xReloadTime;
+		accuracy = xAccuracy;
+		gunAudio = xGunAudio;
+		gunAudioSingle = xGunAudioSingle;
+		reloadAudio = xReloadAudio;
 
 		mag = magCapacity;
 		chamber = true;
-	}
-
-	public void setHouse(bool state) {
-		house = state;
 	}
 }
