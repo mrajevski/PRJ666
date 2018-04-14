@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class itemObject : MonoBehaviour {
+public class itemObject : MonoBehaviour{
 
-	public int itemID, itemType, itemCode, jim;
-	/* itemType: 0 - gun, 1 - ammo, 2 - gas, 3 - health, 4 - armor */
+	public int itemID, itemType, itemCode;
+	/* itemType: 0 - gun, 1 - ammo, 2 - gas, 3 - health, 4 - armor, 5 - backpack, 6 - gas mask */
 	/* itemCode varies based on teh itemType
 	// gun: 0 is the only value
 	// ammo: itemCode is the ammo type
@@ -15,11 +15,20 @@ public class itemObject : MonoBehaviour {
 	*/
 	public Sprite image;
 	public string name;
-	public gunObject gunInfo;
+	public gunObject gun;
+
+	public itemObject() {
+		itemID = -1;
+		itemType = -1;
+		itemCode = -1;
+		image = null;
+		name = "";
+		gun = null;
+	}
 
 	void Start() {
 		if (itemType != 0) {
-			gunInfo = null;
+			gun = null;
 		}
 	}
 }
