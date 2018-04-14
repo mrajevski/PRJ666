@@ -44,6 +44,7 @@ public class PauseMenu : MonoBehaviour {
     void Update () {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             pauseMenuUI.SetActive(true);
+            Time.timeScale = 0f;
             if (playerHealth.health <= 0)
                 SaveText.GetComponent<Button>().enabled = false;
             else
