@@ -72,11 +72,10 @@ public class ScavShoot : MonoBehaviour
                 curMag -= 1;
 
                 gunLine.enabled = true;
-				gunLine.SetPosition(0, transform.position);
-				spread = (Random.Range(accuracy - 0.1f, 80.0f) - 100.0f);
-				spread *= ((Random.Range (0, 10) < 5) ? -0.8f : 0.8f);
-				aim.Rotate (new Vector3 (0, 0, spread));
-
+                //Sets the offset for the origin point of the shot so it doesnt look like bullet vomit
+                Vector3 shotOffset = transform.position;
+                shotOffset.y = transform.position.y - 0.1f;
+                gunLine.SetPosition(0, shotOffset);
 
                 shootRay.origin = aim.transform.position;
                 shootRay.direction = aim.transform.right;
