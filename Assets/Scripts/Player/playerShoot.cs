@@ -26,20 +26,6 @@ public class playerShoot : MonoBehaviour {
 	void Start() {
 		ammo = backpack.GetComponent<ammoController> ();
 		inventory = backpack.GetComponent<itemController> ();
-		/*if (inventory.equipment [0].itemID != -1)
-			g1 = inventory.equipment [0].gun;
-		else
-			g1 = new gunObject ();
-
-		if (inventory.equipment [1].itemID != -1)
-			g2 = inventory.equipment [1].gun;
-		else
-			g2 = new gunObject ();
-
-		if (inventory.equipment [2].itemID != -1)
-			g3 = inventory.equipment [2].gun;
-		else
-			g3 = new gunObject ();*/
 	}
 
 	void Awake ()

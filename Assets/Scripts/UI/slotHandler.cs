@@ -10,10 +10,10 @@ public class slotHandler : MonoBehaviour, IDropHandler {
 
 	public void OnDrop(PointerEventData eventData) {
 		slotData droppedItem = eventData.pointerDrag.GetComponent<slotData> ();
-		if ((slotType && inventory.equipment[position].itemID != -1) || (!slotType && inventory.inventory[position].itemID != -1)) {
+		if ((droppedItem.dataType && inventory.equipment[droppedItem.position].itemID != -1) || (!droppedItem.dataType && inventory.inventory[droppedItem.position].itemID != -1)) {
 			if (droppedItem.dataType != slotType) {
 				if (!slotType)
-					inventory.swap (position, droppedItem.position);
+					inventory.swap (position, droppedItem.position); // 
 				else 
 					inventory.swap (droppedItem.position, position);
 			} else {
@@ -21,7 +21,6 @@ public class slotHandler : MonoBehaviour, IDropHandler {
 					inventory.e2e (position, droppedItem.position);
 				else 
 					inventory.i2i (position, droppedItem.position);
-				
 			}
 		}
 	}
