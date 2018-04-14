@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour {
     public Animator animator;
 	public string startPoint;
 	public static bool playerExists;
+    public int JerryCans;
     //manual use only
     public int spriteUse = 1;
 
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour {
 		cam = Camera.main;
 		player = GetComponent<Rigidbody> ();
 		floorMask = LayerMask.GetMask ("Floor");
+        JerryCans = 0;
 
 		if (!playerExists) {
 			playerExists = true;
