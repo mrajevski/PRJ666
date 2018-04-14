@@ -13,6 +13,7 @@ public class RandomMap : MonoBehaviour {
     public string levelFour;
     public int currentLevel;
     public Vector2 pos;
+    public GameObject player;
 
     // Use this for initialization
     void Start () {
@@ -36,7 +37,8 @@ public class RandomMap : MonoBehaviour {
 
         levelFour = "main";
 
-        currentLevel = 0;
+        currentLevel = 1;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -54,7 +56,10 @@ public class RandomMap : MonoBehaviour {
         string levelToLoad;
 
         if (currentLevel == 1)
+        {
             levelToLoad = randomLevel(levelTwo);
+            level2RelocatePosition(levelToLoad);
+        }
         else if (currentLevel == 2)
             levelToLoad = randomLevel(levelOne);
         else
@@ -62,7 +67,9 @@ public class RandomMap : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.E))
         {
+            player.transform.position = pos;
             currentLevel++;
+            player.GetComponent<PlayerMovement>().JerryCans = 0;
             SceneManager.LoadScene(levelToLoad);
         }
     }
@@ -70,6 +77,14 @@ public class RandomMap : MonoBehaviour {
     public string randomFirstLevel()
     {
         return randomLevel(levelOne);
+    }
+
+    public void level2RelocatePosition(string level)
+    {
+        if (level.Equals("LucasMap2"))
+            pos = new Vector2(-12.06f, 10.69f);
+        else if (level.Equals("KelvinLevel2"))
+            pos = new Vector2(-22.6f, 17.09f);
     }
 
     public Vector2 relocatePlayerPosition(string level)

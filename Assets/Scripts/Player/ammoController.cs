@@ -5,71 +5,40 @@ using UnityEngine;
 public class ammoController : MonoBehaviour {
 
 	public int ammo9mm; // ID - 0
-	public int ammo44 = 0;  // ID - 1
-	public int ammo45 = 0;  // ID - 2
+	public int ammo44; // ID -1
+	public int ammo45;  // ID - 2
 	public int ammo545; // ID - 3
-	public int ammo556 = 0; // ID - 4
-	public int ammo762 = 0; // ID - 5
-	public int ammo308 = 0; // ID - 6
-	public int ammo12g = 0; // ID - 7
+	public int ammo556; // ID - 4
+	public int ammo762; // ID - 5
+	public int ammo308; // ID - 6
+	public int ammo12g; // ID - 7
 
-	void Start() {
-		ammo9mm = 50;
-		ammo545 = 60;
-	}
-
-	public bool shot(int ammoID) {
+	public void shot(int ammoID) {
 		switch (ammoID) {
 		case 0:
-			if (ammo9mm > 0)
-				ammo9mm--;
-			else
-				return false;
-			return true;
+			ammo9mm--;
+			break;
 		case 1:
-			if (ammo44 > 0)
-				ammo44--;
-			else
-				return false;
-			return true;
+			ammo44--;
+			break;
 		case 2:
-			if (ammo45 > 0)
-				ammo45--;
-			else
-				return false;
-			return true;
+			ammo45--;
+			break;
 		case 3:
-			if (ammo545 > 0)
-				ammo545--;
-			else
-				return false;
-			return true;
+			ammo545--;
+			break;
 		case 4:
-			if (ammo556 > 0)
-				ammo556--;
-			else
-				return false;
-			return true;
+			ammo556--;
+			break;
 		case 5:
-			if (ammo762 > 0)
-				ammo762--;
-			else
-				return false;
-			return true;
+			ammo762--;
+			break;
 		case 6:
-			if (ammo308 > 0)
-				ammo308--;
-			else
-				return false;
-			return true;
+			ammo308--;
+			break;
 		case 7:
-			if (ammo12g > 0)
-				ammo12g--;
-			else
-				return false;
-			return true;
-		default:
-			return false;	
+			ammo12g--;
+			break;
 		}
 	}
 
