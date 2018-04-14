@@ -18,6 +18,7 @@ public class Shop : MonoBehaviour {
     public List<int> ammoSpec;
     public List<int> ammoCount;
     public int currentWallet;
+    public GameObject backpack;
 
     //Define variable for BuyList
     public Text txtBuyCost;
@@ -53,7 +54,8 @@ public class Shop : MonoBehaviour {
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         currentWallet = player.GetComponent<PlayerMovement>().wallet;
-        ItemController = GameObject.FindObjectOfType<itemController>();
+        backpack = player.transform.Find("Backpack").gameObject;
+        ItemController = backpack.GetComponent<itemController>();
         //Setting Value for onHand text
         txt9mm.text = "On-Hand: " + ItemController.ammo.ammo9mm.ToString();
         txt45ACP.text = "On-Hand: " + ItemController.ammo.ammo45.ToString();

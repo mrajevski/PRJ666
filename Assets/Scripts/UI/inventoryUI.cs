@@ -9,7 +9,8 @@ public class inventoryUI : MonoBehaviour {
 	public Text ammo9mm, ammo44, ammo45, ammo545, ammo556, ammo762, ammo308, ammo12g;
 	public GameObject backpack;
 	public itemObject selected, empty;
-	public float mX = 0, mY = 0;
+    public GameObject player;
+    public float mX = 0, mY = 0;
 	int UIMask;
 	itemController inventory;
 	ammoController ammo;
@@ -17,7 +18,9 @@ public class inventoryUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		inventory = backpack.GetComponent<itemController> ();
+        player = GameObject.FindGameObjectWithTag("Player");
+        backpack = player.transform.Find("Backpack").gameObject;
+        inventory = backpack.GetComponent<itemController> ();
 		ammo = backpack.GetComponent<ammoController> ();
 		ui.enabled = false;/*
 		for (int i = 0; i < 32; i++) {
