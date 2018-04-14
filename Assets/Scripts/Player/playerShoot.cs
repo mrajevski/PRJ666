@@ -83,7 +83,8 @@ public class playerShoot : MonoBehaviour {
 		}
 
 		// Rate of Fire //
-		if (timer >= rateOfFire * shotDisplayTime + 0.02f) {
+		if (timer >= rateOfFire * shotDisplayTime + 0.02f)
+        {
 			disableShot();
 		}
 
@@ -98,7 +99,8 @@ public class playerShoot : MonoBehaviour {
 		}
 
 		// Accuracy Cone //
-		if (currAccuracy < 100.0f) { 
+		if (currAccuracy < 100.0f)
+        { 
 			currAccuracy += 0.1f;
 		}
 
@@ -148,7 +150,8 @@ public class playerShoot : MonoBehaviour {
 	void Shoot ()
 	{
 		timer = 0.0f;
-		if (chamber) {			
+		if (chamber)
+        {			
 			if (mag != 0)
 				mag--;
 			else

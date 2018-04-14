@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScavShoot : MonoBehaviour {
+public class ScavShoot : MonoBehaviour
+{
 
     public float reloadTime, accuracy, rateOfFire;
     public int mag;
@@ -22,14 +23,19 @@ public class ScavShoot : MonoBehaviour {
         reloadTime = Random.Range(0.5f, 2.0f);
         accuracy = Random.Range(60f, 80f);
         rateOfFire = Random.Range(0.04f, 0.1f);
-        mag = Random.Range(5, 20);
+        mag = Random.Range(1, 5);
 
         damage = 4f;
-        if (rateOfFire > 0.06f) damage += 2f; //if rate of fire greater than value, add 2 damage
-        if (rateOfFire > 0.08f && rateOfFire < 0.11f) damage += 2f; // and another 2 if rof is even greater
-        if (accuracy < 74f) damage += 0.5f; //similar to rate of fire damage increase
-        if (accuracy < 68f) damage += 0.5f;
-        if (accuracy < 64f) damage += 0.5f;
+        if (rateOfFire > 0.06f) //if rate of fire greater than value, add 2 damage
+            damage += 2f; 
+        if (rateOfFire > 0.08f && rateOfFire < 0.11f) // and another 2 if rof is even greater
+            damage += 2f;
+        if (accuracy < 74f) //similar to rate of fire damage increase
+            damage += 0.5f;
+        if (accuracy < 68f)
+            damage += 0.5f;
+        if (accuracy < 64f)
+            damage += 0.5f;
 
         shootableMask = LayerMask.GetMask("Default");
         gunLine = GetComponent<LineRenderer>();
@@ -38,11 +44,16 @@ public class ScavShoot : MonoBehaviour {
 
     void Update()
     {
-        if (reload == true) { timer += Time.deltaTime; disableShoot(); }
-        else timer = 0f;
-        if (timer >= reloadTime) { reload = false; curMag = mag; }
+        if (reload == true) {
+            timer += Time.deltaTime; disableShoot();
+        }
+        else
+            timer = 0f;
+        if (timer >= reloadTime)
+        {
+            reload = false; curMag = mag;
+        }
 
-        if (timer == reloadTime) reload = false;
         shotTimer += Time.deltaTime;
     }
 
@@ -56,17 +67,17 @@ public class ScavShoot : MonoBehaviour {
         if (shotTimer >= rateOfFire)
         {
             shotTimer = 0f;
-            if (curMag == 0) reload = true;
-            if (reload == false)
+            if (curMag != 0)
             {
                 curMag -= 1;
 
                 gunLine.enabled = true;
-				gunLine.SetPosition(0, transform.position);
+                gunLine.SetPosition(0, transform.position);
 
-				spread = (Random.Range(accuracy - 0.1f, 80.0f) - 100.0f);
-				spread *= ((Random.Range (0, 10) < 5) ? -0.8f : 0.8f);
-				aim.Rotate (new Vector3 (0, 0, spread));
+                spread = (Random.Range(accuracy - 0.1f, 80.0f) - 100.0f);
+                spread *= ((Random.Range (0, 10) < 5) ? -0.8f : 0.8f);
+                aim.Rotate (new Vector3 (0, 0, spread));
+
 
                 shootRay.origin = aim.transform.position;
                 shootRay.direction = aim.transform.right;
@@ -87,6 +98,8 @@ public class ScavShoot : MonoBehaviour {
 				}
 				aim.Rotate (new Vector3 (0, 0, -spread));
             }
+            else
+                reload = true;
         }
     }
 }
