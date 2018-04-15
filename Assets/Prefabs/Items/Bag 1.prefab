@@ -68,7 +68,7 @@ MonoBehaviour:
   itemID: 15
   itemType: 5
   itemCode: 1
-  image: {fileID: 21300000, guid: 8ef9ffbc659a40e4cb55d2fab8b2eabd, type: 3}
+  image: {fileID: 21300000, guid: 383f7c6a5f9c67e47855660d4ebf6f4f, type: 3}
   name: Small Backpack
   gun: {fileID: 114420448322589828, guid: 60fd27c582635dc418f427fb4579d6a2, type: 2}
 --- !u!212 &212584075594631816
@@ -103,7 +103,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8ef9ffbc659a40e4cb55d2fab8b2eabd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 383f7c6a5f9c67e47855660d4ebf6f4f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
