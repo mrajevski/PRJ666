@@ -9,17 +9,31 @@ public class inventoryUI : MonoBehaviour {
 	public Text ammo9mm, ammo44, ammo45, ammo545, ammo556, ammo762, ammo308, ammo12g;
 	public GameObject backpack;
 	public itemObject empty;
-	int UIMask;
+    public GameObject player;
+    int UIMask;
+    public static bool invExists;
 	itemController inventory;
 	ammoController ammo;
 	bool openUI = false, pause = false, shop = false;
 
 	// Use this for initialization
 	void Start () {
-		inventory = backpack.GetComponent<itemController> ();
-		ammo = backpack.GetComponent<ammoController> ();
-		ui.enabled = false;
-	}
+
+        player = GameObject.FindGameObjectWithTag("Player");
+        backpack = player.transform.Find("Backpack").gameObject;
+        inventory = backpack.GetComponent<itemController>();
+        ammo = backpack.GetComponent<ammoController>();
+        ui.enabled = false;
+        if (!invExists)
+        {
+            invExists = true;
+            DontDestroyOnLoad(transform.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
 	// Update is called once per frame
 	void Update () {
