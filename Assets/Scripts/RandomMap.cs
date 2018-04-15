@@ -66,6 +66,7 @@ public class RandomMap : MonoBehaviour {
         if (player.GetComponent<PlayerMovement>().playerLevel > 2)
         {
             levelToLoad = levelFour;
+            level2RelocatePosition(levelToLoad);
         }
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -92,6 +93,8 @@ public class RandomMap : MonoBehaviour {
             pos = new Vector2(-26.5f, -7.5f);
         else if (level.Equals("KelvinLevel3"))
             pos = new Vector2(-3.6f, -0.25f);
+        else if (level.Equals("Final"))
+            pos = new Vector2(2.5f, -14.0f);
     }
 
     public Vector2 relocatePlayerPosition(string level)
