@@ -30,8 +30,8 @@ public class RandomMap : MonoBehaviour {
         //levelTwo.Add("MattMap2");//Need to be added
 
         ////Names for level three
-        //levelThree.Add("LucasMap3");//Need to be added
-        //levelThree.Add("KelvinLevel3");//Need to be added
+        levelThree.Add("LucasMap3");//Need to be added
+        levelThree.Add("KelvinLevel3");//Need to be added
         //levelThree.Add("ParmMap3");//Need to be added
         //levelThree.Add("MattMap3");//Need to be added
 
@@ -59,9 +59,14 @@ public class RandomMap : MonoBehaviour {
         {
             levelToLoad = randomLevel(levelTwo);
             level2RelocatePosition(levelToLoad);
+            currentLevel++;
         }
         else if (currentLevel == 2)
-            levelToLoad = randomLevel(levelOne);
+        {
+            levelToLoad = randomLevel(levelThree);
+            level2RelocatePosition(levelToLoad);
+            currentLevel++;
+        }
         else
             levelToLoad = levelFour;
 
@@ -85,6 +90,10 @@ public class RandomMap : MonoBehaviour {
             pos = new Vector2(-12.06f, 10.69f);
         else if (level.Equals("KelvinLevel2"))
             pos = new Vector2(-22.6f, 17.09f);
+        else if (level.Equals("LucasMap3"))
+            pos = new Vector2(-22.6f, 17.09f);
+        else if (level.Equals("KelvinLevel3"))
+            pos = new Vector2(-10.6f, 16.09f);
     }
 
     public Vector2 relocatePlayerPosition(string level)
