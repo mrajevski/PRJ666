@@ -10,7 +10,7 @@ public class itemController : MonoBehaviour{
 	public List<itemObject> equipment = new List<itemObject>();
 	public itemObject starterG1, starterG2, starterHealth, empty;
 	public ammoController ammo;
-	bool mask = false;
+	public bool mask = false;
 
 	// Use this for initialization
 	void Start () {
