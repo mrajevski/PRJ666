@@ -282,7 +282,7 @@ MonoBehaviour:
   itemID: 24
   itemType: 0
   itemCode: 0
-  image: {fileID: 21300000, guid: 38830f92b3014e44e9ba5e8096386aed, type: 3}
+  image: {fileID: 21300000, guid: ad2d35683a30e6144abfb52d23910477, type: 3}
   name: Glock 17
   gun: {fileID: 114206545722116478}
 --- !u!212 &212701547036325616
@@ -294,7 +294,6 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -310,7 +309,6 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -319,7 +317,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 38830f92b3014e44e9ba5e8096386aed, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ad2d35683a30e6144abfb52d23910477, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
