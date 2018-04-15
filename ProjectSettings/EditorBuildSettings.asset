@@ -27,8 +27,14 @@ EditorBuildSettings:
     path: Assets/Scenes/KelvinMap2/KelvinLevel2.unity
     guid: e020201f16fc6a041b7bfe3a7dd24b66
   - enabled: 1
+    path: Assets/Scenes/KelvinMap2/KelvinLevel2House1.unity
+    guid: f676fcd90ebbb1544b59bf412a8b5a4e
+  - enabled: 1
     path: Assets/Scenes/KelvinMap2/KelvinLevel2House2.unity
     guid: be91cdf40d04fa8488023eb7a2783b7b
+  - enabled: 1
+    path: Assets/Scenes/KelvinMap2/KelvinLevel2Shop.unity
+    guid: e8341ba82bfde944cb7e7e1b1926c650
   - enabled: 1
     path: Assets/Scenes/LucasMap1/LucasMap1.unity
     guid: 19bb9941c62081b4fa4c3480e320e0e9
