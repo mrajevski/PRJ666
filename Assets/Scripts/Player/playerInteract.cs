@@ -12,7 +12,9 @@ public class playerInteract : MonoBehaviour {
 		case "Item":
 			if (Input.GetKey (KeyCode.E)) {
 				if (backpack.addItem (c.gameObject.GetComponent<itemObject> ())) {
-					c.gameObject.SetActive (false);
+					c.gameObject.transform.parent = GameObject.Find("Player/Backpack").transform;
+					c.GetComponent<BoxCollider> ().enabled = false;
+					c.GetComponent<SpriteRenderer> ().enabled = false;
 					items++;
 				}
 			}

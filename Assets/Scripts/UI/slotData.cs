@@ -7,6 +7,7 @@ public class slotData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 	public itemController inventory;
 	public int position;
 	private Vector2 origin;
+	private Transform originParent;
 	public bool dragging = false, dataType = false; // true - equipment, false - inventory
 
 	/*
@@ -16,9 +17,11 @@ public class slotData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
 
 	public void OnBeginDrag(PointerEventData eventData) {
-		if ((!dataType && inventory.inventory [position].itemID != -1) || (dataType && inventory.equipment [position].itemID != -1)) {
+		if ((!dataType && inventory.inventory [position].itemID == -1) || (dataType && inventory.equipment [position].itemID == -1)) {
 			dragging = true;
 			origin = this.transform.position;
+			originParent = this.transform.parent;
+			this.transform.SetParent (GameObject.Find("Inventory UI").transform);
 			this.transform.position = eventData.position;
 		}
 	}
@@ -31,9 +34,8 @@ public class slotData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 	public void OnEndDrag(PointerEventData eventData) {
 		if (dragging) {
 			dragging = false;
+			this.transform.SetParent (originParent);
 			this.transform.position = origin;
 		}
 	}
-
-
 }
