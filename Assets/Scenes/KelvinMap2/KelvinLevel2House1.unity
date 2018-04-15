@@ -896,7 +896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 974e76e1152bda54f91f9a21a3b56b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: main
+  levelToLoad: KelvinLevel2
   exitPoint: Exit H1
   player: {fileID: 0}
 --- !u!4 &522520624
@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  pointName: EnterKelvinLevel2House1
+  pointName: KevL2House2
   startPoint: {fileID: 0}
 --- !u!4 &665985964
 Transform:
