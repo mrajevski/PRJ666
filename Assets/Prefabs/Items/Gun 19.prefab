@@ -94,7 +94,8 @@ AudioSource:
   m_GameObject: {fileID: 1683516097529616}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: cbbe97ce4d7bdca4580ee8c599800046,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 68f66ab5151739748b0738c9322fb130, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -263,7 +264,6 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 4cdc7f2f1feb8014aa45e1b44255509e, type: 3}
   name: SCAR-H
   gun: {fileID: 114990579177677742}
-  gunID: 0
 --- !u!114 &114990579177677742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -295,7 +295,6 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -311,7 +310,6 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
