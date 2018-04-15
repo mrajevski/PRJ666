@@ -89,9 +89,9 @@ public class RandomMap : MonoBehaviour {
         else if (level.Equals("KelvinLevel2"))
             pos = new Vector2(-22.6f, 17.09f);
         else if (level.Equals("LucasMap3"))
-            pos = new Vector2(-22.6f, 17.09f);
+            pos = new Vector2(-26.5f, -7.5f);
         else if (level.Equals("KelvinLevel3"))
-            pos = new Vector2(-10.6f, 16.09f);
+            pos = new Vector2(-3.6f, -0.25f);
     }
 
     public Vector2 relocatePlayerPosition(string level)
