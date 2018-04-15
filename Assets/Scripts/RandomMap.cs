@@ -11,7 +11,6 @@ public class RandomMap : MonoBehaviour {
     public List<string> levelTwo;
     public List<string> levelThree;
     public string levelFour;
-    public int currentLevel;
     public Vector2 pos;
     public GameObject player;
 
@@ -20,8 +19,8 @@ public class RandomMap : MonoBehaviour {
         //Names for first levels
         levelOne.Add("main");
         levelOne.Add("LucasMap1");
-        levelOne.Add("main");//Need to be added
-        levelOne.Add("main");//Need to be added
+        //levelOne.Add("ParmMap1");//Need to be added
+        //levelOne.Add("MattMap1");//Need to be added
 
         //Names for second levels
         levelTwo.Add("LucasMap2");
@@ -35,9 +34,8 @@ public class RandomMap : MonoBehaviour {
         //levelThree.Add("ParmMap3");//Need to be added
         //levelThree.Add("MattMap3");//Need to be added
 
-        levelFour = "main";
+        levelFour = "Final";
 
-        currentLevel = 1;
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -53,27 +51,27 @@ public class RandomMap : MonoBehaviour {
     }
     void OnTriggerStay(Collider other)
     {
-        string levelToLoad;
+        string levelToLoad = "";
 
-        if (currentLevel == 1)
+        if (player.GetComponent<PlayerMovement>().playerLevel == 1)
         {
             levelToLoad = randomLevel(levelTwo);
             level2RelocatePosition(levelToLoad);
-            currentLevel++;
         }
-        else if (currentLevel == 2)
+        if (player.GetComponent<PlayerMovement>().playerLevel == 2)
         {
             levelToLoad = randomLevel(levelThree);
             level2RelocatePosition(levelToLoad);
-            currentLevel++;
         }
-        else
+        if (player.GetComponent<PlayerMovement>().playerLevel > 2)
+        {
             levelToLoad = levelFour;
+        }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
             player.transform.position = pos;
-            currentLevel++;
+            player.GetComponent<PlayerMovement>().playerLevel++;
             player.GetComponent<PlayerMovement>().JerryCans = 0;
             SceneManager.LoadScene(levelToLoad);
         }
