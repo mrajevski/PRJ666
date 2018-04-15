@@ -52,8 +52,13 @@ public class playerShoot : MonoBehaviour {
 				}
 				break;
 			case 2: // Shotgun //
-				
-				break;
+                if (!trigger && chamber && !sprinting && !reloading && !switching)
+                {
+                    if (ammo.shot(inventory.equipment[g].gun.ammoID))
+                         trigger = true;
+                    Shoot();
+                }
+                break;
 			default:
 				break;
 			}
