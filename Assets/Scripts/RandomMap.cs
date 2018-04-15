@@ -53,6 +53,10 @@ public class RandomMap : MonoBehaviour {
     {
         string levelToLoad = "";
 
+        if (player.GetComponent<PlayerMovement>().playerLevel == 0)
+        {
+            player.GetComponent<PlayerMovement>().playerLevel++;
+        }
         if (player.GetComponent<PlayerMovement>().playerLevel == 1)
         {
             levelToLoad = randomLevel(levelTwo);
