@@ -11,6 +11,7 @@ public class itemController : MonoBehaviour{
 	public itemObject starterG1, starterG2, starterHealth, empty;
 	public ammoController ammo;
 	public bool mask = false;
+	public int g;
 
 	// Use this for initialization
 	void Start () {
@@ -59,6 +60,7 @@ public class itemController : MonoBehaviour{
 			return true;
 		case 5:
 			bagID = i.itemCode;
+			//capacity = (bagID == 1) ? 23 : 31;
 			return true;
 		case 6:
 			mask = true;

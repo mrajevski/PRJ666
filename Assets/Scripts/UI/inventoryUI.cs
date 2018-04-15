@@ -68,9 +68,9 @@ public class inventoryUI : MonoBehaviour {
 			t.text = inventory.inventory [j].name;
 		}
 		if (inventory.bagID >= 1) {
-			GameObject.Find ("Inventory/1").SetActive(true);
+			GameObject.Find ("Inventory UI/Inventory/R1").SetActive(true);
 			if (inventory.bagID == 2) 
-				GameObject.Find ("Inventory/1/2").SetActive(true);				
+				GameObject.Find ("Inventory UI/Inventory/R1/R2").SetActive(true);				
 		}
 	}
 
