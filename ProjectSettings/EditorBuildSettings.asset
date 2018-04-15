@@ -39,6 +39,15 @@ EditorBuildSettings:
     path: Assets/Scenes/LucasMap1/LucasMap1.unity
     guid: 19bb9941c62081b4fa4c3480e320e0e9
   - enabled: 1
+    path: Assets/Scenes/LucasMap1/L1House1.unity
+    guid: c137cf973dd139d4eb8f3109bc8a6b33
+  - enabled: 1
+    path: Assets/Scenes/LucasMap1/L1House2.unity
+    guid: 4d361372819ca044e882dc35da23e788
+  - enabled: 1
+    path: Assets/Scenes/LucasMap1/L1Mansion.unity
+    guid: 5ece14561b52e474e8222d362801d789
+  - enabled: 1
     path: Assets/Scenes/LucasMap2/LucasMap2.unity
     guid: 61b868f5603305b40bd1dae1194b2968
   - enabled: 1
