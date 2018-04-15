@@ -1798,6 +1798,26 @@ Prefab:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 1387888141}
+    - target: {fileID: 114798865288293824, guid: f72a8b98176e47f408042f47aec8f0df,
+        type: 2}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 1387888141}
+    - target: {fileID: 114802432515575470, guid: f72a8b98176e47f408042f47aec8f0df,
+        type: 2}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 1387888141}
+    - target: {fileID: 114001515872390216, guid: f72a8b98176e47f408042f47aec8f0df,
+        type: 2}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 1387888141}
+    - target: {fileID: 114546028867850426, guid: f72a8b98176e47f408042f47aec8f0df,
+        type: 2}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 1387888141}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f72a8b98176e47f408042f47aec8f0df, type: 2}
   m_IsPrefabParent: 0
