@@ -30,7 +30,7 @@ public class BarScript : MonoBehaviour {
         posionState = false;
         armorState = true;
         player = GameObject.FindGameObjectWithTag("Player");
-        health = Object.FindObjectOfType<playerHealth>();
+        health = player.GetComponent<playerHealth>();
         currentValue = health.getHealth();
         maxValue = health.getHealth();
         animator = player.GetComponent<Animator>();
@@ -44,7 +44,7 @@ public class BarScript : MonoBehaviour {
         if (counter >= 40)
             SceneManager.LoadScene("dead");
 
-        currentValue = health.getHealth();
+        currentValue = health.health;
         CurrentValueText.text = (int)currentValue + "%";
         HandleBar();
         if (currentValue <= 0)
