@@ -57,25 +57,25 @@ public class Shop : MonoBehaviour {
         backpack = player.transform.Find("Backpack").gameObject;
         ItemController = backpack.GetComponent<itemController>();
         //Setting Value for onHand text
-        txt9mm.text = "On-Hand: " + ItemController.ammo.ammo9mm.ToString();
-        txt45ACP.text = "On-Hand: " + ItemController.ammo.ammo45.ToString();
-        txt44mag.text = "On-Hand: " + ItemController.ammo.ammo44.ToString();
-        txt12gage.text = "On-Hand: " + ItemController.ammo.ammo12g.ToString();
-        txt556.text = "On-Hand: " + ItemController.ammo.ammo556.ToString();
-        txt545.text = "On-Hand: " + ItemController.ammo.ammo545.ToString();
-        txt762.text = "On-Hand: " + ItemController.ammo.ammo762.ToString();
-        txt308.text = "On-Hand: " + ItemController.ammo.ammo308.ToString();
+        txt9mm.text = "On-Hand: " + ItemController.ammo.ammo[0].ToString();
+        txt45ACP.text = "On-Hand: " + ItemController.ammo.ammo[2].ToString();
+        txt44mag.text = "On-Hand: " + ItemController.ammo.ammo[1].ToString();
+        txt12gage.text = "On-Hand: " + ItemController.ammo.ammo[7].ToString();
+        txt556.text = "On-Hand: " + ItemController.ammo.ammo[4].ToString();
+        txt545.text = "On-Hand: " + ItemController.ammo.ammo[3].ToString();
+        txt762.text = "On-Hand: " + ItemController.ammo.ammo[5].ToString();
+        txt308.text = "On-Hand: " + ItemController.ammo.ammo[6].ToString();
 
         //Setting Value for ammoCount
         //Ammo count looks at the backpack
-        ammoCount.Add(int.Parse(ItemController.ammo.ammo9mm.ToString()));
-        ammoCount.Add(int.Parse(ItemController.ammo.ammo44.ToString()));
-        ammoCount.Add(int.Parse(ItemController.ammo.ammo45.ToString()));
-        ammoCount.Add(int.Parse(ItemController.ammo.ammo545.ToString()));
-        ammoCount.Add(int.Parse(ItemController.ammo.ammo556.ToString()));
-        ammoCount.Add(int.Parse(ItemController.ammo.ammo762.ToString()));
-        ammoCount.Add(int.Parse(ItemController.ammo.ammo308.ToString()));
-        ammoCount.Add(int.Parse(ItemController.ammo.ammo12g.ToString()));
+        ammoCount.Add(int.Parse(ItemController.ammo.ammo[0].ToString()));
+        ammoCount.Add(int.Parse(ItemController.ammo.ammo[2].ToString()));
+        ammoCount.Add(int.Parse(ItemController.ammo.ammo[1].ToString()));
+        ammoCount.Add(int.Parse(ItemController.ammo.ammo[7].ToString()));
+        ammoCount.Add(int.Parse(ItemController.ammo.ammo[4].ToString()));
+        ammoCount.Add(int.Parse(ItemController.ammo.ammo[3].ToString()));
+        ammoCount.Add(int.Parse(ItemController.ammo.ammo[5].ToString()));
+        ammoCount.Add(int.Parse(ItemController.ammo.ammo[6].ToString()));
 
         SvalueCost = 0;
         BvalueCost = 0;
@@ -202,14 +202,14 @@ public class Shop : MonoBehaviour {
         /*
          * Update Value
          */
-        txt9mm.text = "On-Hand: " + ItemController.ammo.ammo9mm.ToString();
-        txt45ACP.text = "On-Hand: " + ItemController.ammo.ammo45.ToString();
-        txt44mag.text = "On-Hand: " + ItemController.ammo.ammo44.ToString();
-        txt12gage.text = "On-Hand: " + ItemController.ammo.ammo12g.ToString();
-        txt556.text = "On-Hand: " + ItemController.ammo.ammo556.ToString();
-        txt545.text = "On-Hand: " + ItemController.ammo.ammo545.ToString();
-        txt762.text = "On-Hand: " + ItemController.ammo.ammo762.ToString();
-        txt308.text = "On-Hand: " + ItemController.ammo.ammo308.ToString();
+        txt9mm.text = "On-Hand: " + ItemController.ammo.ammo[0].ToString();
+        txt45ACP.text = "On-Hand: " + ItemController.ammo.ammo[2].ToString();
+        txt44mag.text = "On-Hand: " + ItemController.ammo.ammo[1].ToString();
+        txt12gage.text = "On-Hand: " + ItemController.ammo.ammo[7].ToString();
+        txt556.text = "On-Hand: " + ItemController.ammo.ammo[4].ToString();
+        txt545.text = "On-Hand: " + ItemController.ammo.ammo[3].ToString();
+        txt762.text = "On-Hand: " + ItemController.ammo.ammo[5].ToString();
+        txt308.text = "On-Hand: " + ItemController.ammo.ammo[6].ToString();
 
         /*
          * This block code here checks if the input

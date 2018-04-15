@@ -1,15 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\slotHandler.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\slotData.cs">
     <Files>
-      <File FileName="Assets\Scripts\UI\inventoryUI.cs" Line="56" Column="41" />
-      <File FileName="Assets\Scripts\Player\itemController.cs" Line="104" Column="5" />
-      <File FileName="Assets\Scripts\UI\slotHandler.cs" Line="15" Column="10" />
-      <File FileName="Assets\Scripts\UI\slotData.cs" Line="28" Column="18" />
-      <File FileName="Assets\Scripts\Player\ammoController.cs" Line="70" Column="4" />
-      <File FileName="Assets\Scripts\Player\itemObject.cs" Line="25" Column="4" />
-      <File FileName="Assets\Scripts\Player\gunObject.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player\playerShoot.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\inventoryUI.cs" Line="52" Column="38" />
+      <File FileName="Assets\Scripts\Player\itemController.cs" Line="90" Column="59" />
+      <File FileName="Assets\Scripts\Player\playerShoot.cs" Line="10" Column="43" />
+      <File FileName="Assets\Scripts\UI\deleteHandler.cs" Line="11" Column="80" />
+      <File FileName="Assets\Scripts\UI\slotHandler.cs" Line="8" Column="21" />
+      <File FileName="Assets\Scripts\UI\slotData.cs" Line="22" Column="37" />
+      <File FileName="Assets\Scripts\Player\ammoController.cs" Line="14" Column="17" />
+      <File FileName="Assets\Scripts\Player\itemObject.cs" Line="18" Column="23" />
+      <File FileName="Assets\Scripts\Player\gunObject.cs" Line="7" Column="1" />
+      <File FileName="Assets\Scripts\Player\playerHealth.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\playerInteract.cs" Line="20" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

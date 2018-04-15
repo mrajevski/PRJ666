@@ -10,13 +10,14 @@ public class itemController : MonoBehaviour{
 	public List<itemObject> equipment = new List<itemObject>();
 	public itemObject starterG1, starterG2, starterHealth, empty;
 	public ammoController ammo;
+	bool mask = false;
 
 	// Use this for initialization
 	void Start () {
 		capacity = 16;
 		bagID = 0;
 		size = 1;
-		for (int i = 0; i < 32; i++) {
+		for (int i = 0; i < 33; i++) {
 			inventory.Add(empty);
 		}
 		for (int i = 0; i < 9; i++) {
@@ -59,35 +60,39 @@ public class itemController : MonoBehaviour{
 		case 5:
 			bagID = i.itemCode;
 			return true;
+		case 6:
+			mask = true;
+			return true;
 		default:
 			return false;
 		}
 	}
 
 	public void removeItem(int i) {
-		inventory[i] = new itemObject();
 		for (; inventory[i].itemID != -1; i++) {
-			inventory [i - 1] = inventory [i];
+			inventory [i] = inventory [i + 1];
 		}
+		inventory [i] = empty;
 		size--;
 	}
 
-    //Inventory to Inventory
+	// Switch within the inventory //
 	public void i2i(int i1, int i2) {
-		if (inventory[i1].itemID != -1) {
+		if (inventory[i1].itemID != -1 || inventory[i2].itemID != -1) {
 			itemObject tmp = inventory [i1];
 			inventory [i1] = inventory [i2];
 			inventory [i2] = tmp;
 		}
 	}
 
+	// Switch between inventory and equipment //
 	public void swap(int i, int e) { 
 		if (inventory [i].itemID == -1 && equipment [e].itemID != -1) {
 			itemObject tmp = inventory [i];
 			inventory [i] = equipment [e];
 			equipment [e] = tmp;
 			size++;
-		} else if (inventory [i].itemID != -1 && equipment [e].itemID == -1) {
+		} else if (inventory [i].itemID != -1 || equipment [e].itemID == -1) {
 			if (inventory [i].itemType == 0) {
 				if (e < 3) {
 					itemObject tmp = inventory [i];
@@ -106,7 +111,7 @@ public class itemController : MonoBehaviour{
 		}		
 	}
 
-    //Equipment to Equipment
+	// Switch within the equipment //
 	public void e2e(int e1, int e2) {
 		if ((e1 < 3 && e2 < 3) || (e1 > 2 && e2 > 2)) {
 			itemObject tmp = equipment [e1];
