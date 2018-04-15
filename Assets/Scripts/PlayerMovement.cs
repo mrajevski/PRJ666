@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour {
 	public string startPoint;
 	public static bool playerExists;
     public int JerryCans;
+    public int playerLevel = 0;
     //manual use only
     public int spriteUse = 1;
 
