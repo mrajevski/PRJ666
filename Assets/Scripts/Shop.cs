@@ -293,6 +293,10 @@ public class Shop : MonoBehaviour {
                 if (!(i == 5 || i == 6))
                 {
                     ItemController.addItem(ItemObject[i]);
+                    ItemController.addItem(ItemObject[i]);
+                    ItemObject[i].GetComponent<BoxCollider>().enabled = false;
+                    ItemObject[i].GetComponent<SpriteRenderer>().enabled = false;
+                    ItemObject[i].transform.parent = GameObject.Find("Player/Backpack").transform;
                     othersItems[i].isOn = false;
                     othersItems[i].enabled = false;
                 }
