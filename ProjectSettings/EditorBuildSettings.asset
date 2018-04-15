@@ -60,6 +60,18 @@ EditorBuildSettings:
     path: Assets/Scenes/KelvinMap3/KelvinLevel3.unity
     guid: cb88e557583101a4e8bb9bec64d68a75
   - enabled: 1
+    path: Assets/Scenes/KelvinMap3/KelvinLevel3House1.unity
+    guid: 5e4de846957cf0d4f96adb1e09eed2ab
+  - enabled: 1
+    path: Assets/Scenes/KelvinMap3/KelvinLevel3House2.unity
+    guid: 0dd8e305f466bb64e81afb3826258e21
+  - enabled: 1
+    path: Assets/Scenes/KelvinMap3/KelvinLevel3Shop.unity
+    guid: 9beffbe95c5d46248986cdc570bf8f52
+  - enabled: 1
+    path: Assets/Scenes/KelvinMap3/KelvinLevel3Mansion.unity
+    guid: d710852c329755549893fda6f9a941a8
+  - enabled: 1
     path: Assets/Scenes/LucasMap2/House4.unity
     guid: f0758f15efe13804898c395d900305ad
   - enabled: 1
