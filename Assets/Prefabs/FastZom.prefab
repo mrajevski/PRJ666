@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65d45145fe3f1f4aa6f3d3420e191fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1000
+  health: 300
   parent: {fileID: 1601286099984098}
 --- !u!114 &114495567663118976
 MonoBehaviour:
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65d45145fe3f1f4aa6f3d3420e191fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1000
+  health: 200
   parent: {fileID: 1601286099984098}
 --- !u!135 &135282153202186142
 SphereCollider:
@@ -218,5 +218,3 @@ SpriteRenderer:
   m_Size: {x: 0.61, y: 0.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0

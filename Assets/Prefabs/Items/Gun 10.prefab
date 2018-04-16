@@ -176,7 +176,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: cbbe97ce4d7bdca4580ee8c599800046,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: ab5946de5aa01ac47850540c14b4afa7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c2bd68ed91101384790a0bdbc2fb7be3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -278,8 +278,8 @@ MonoBehaviour:
   reloadTime: 4.5
   accuracy: 90
   rateOfFire: 0.7
-  damage: 200
-  magCapacity: 6
+  damage: 600
+  magCapacity: 20
   gunID: 20
   ammoID: 6
   value: 0
@@ -326,5 +326,3 @@ SpriteRenderer:
   m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0

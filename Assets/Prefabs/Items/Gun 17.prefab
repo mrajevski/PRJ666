@@ -279,7 +279,7 @@ MonoBehaviour:
   accuracy: 90
   rateOfFire: 0.12
   damage: 50
-  magCapacity: 60
+  magCapacity: 180
   gunID: 11
   ammoID: 6
   value: 0
@@ -326,5 +326,3 @@ SpriteRenderer:
   m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0

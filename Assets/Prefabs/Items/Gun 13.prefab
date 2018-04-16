@@ -261,7 +261,7 @@ MonoBehaviour:
   reloadTime: 3
   accuracy: 60
   rateOfFire: 0.45
-  damage: 50
+  damage: 150
   magCapacity: 7
   gunID: 17
   ammoID: 2

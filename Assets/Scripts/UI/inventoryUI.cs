@@ -10,6 +10,7 @@ public class inventoryUI : MonoBehaviour {
 	public GameObject backpack;
 	public itemObject empty;
     public GameObject player;
+
     int UIMask;
     public static bool invExists;
 	itemController inventory;
