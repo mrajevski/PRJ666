@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour {
     public GameObject pauseMenuUI;
     public GameObject settingUI;
     public GameObject player;
+    public GameObject controls;
     public Button resumeText;
     public Button exitText;
 
@@ -31,6 +32,7 @@ public class PauseMenu : MonoBehaviour {
 
     void Start() {
         pauseMenuUI.SetActive(false);
+        controls.SetActive(false);
         SaveText = SaveText.GetComponent<Button>();
         exitText = exitText.GetComponent<Button>();
         resumeText = resumeText.GetComponent<Button>();
@@ -49,12 +51,6 @@ public class PauseMenu : MonoBehaviour {
                 SaveText.GetComponent<Button>().enabled = false;
             else
                 SaveText.GetComponent<Button>().enabled = true;
-            if (GameIsPaused) {
-                Resume();
-            }
-            else {
-                Pause();
-            }
         }
     }
 
@@ -73,7 +69,17 @@ public class PauseMenu : MonoBehaviour {
         settingUI.SetActive(true);
     }
 
-    public void Save()
+    public void toControls()
+    {
+        controls.SetActive(true);
+    }
+    
+    public void exitControls()
+    {
+        controls.SetActive(false);
+    }
+
+public void Save()
     {
      /*
         //Saving from playerPref

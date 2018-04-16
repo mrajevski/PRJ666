@@ -17,7 +17,7 @@ public class mainMenu : MonoBehaviour {
     public PlayerMovement playerController;
 
     public GameObject player;
-
+    public GameObject inv;
 
     public RandomMap randomMap;
 
@@ -28,7 +28,7 @@ public class mainMenu : MonoBehaviour {
         quitText = quitText.GetComponent<Button>();
         settingsMenu = Object.FindObjectOfType<SettingsMenu>();
         quitMenu.enabled = false;
-
+        inv.SetActive(false);
         healthController = Object.FindObjectOfType<playerHealth>();
         playerController = Object.FindObjectOfType<PlayerMovement>();
         randomMap = Object.FindObjectOfType<RandomMap>();
@@ -64,6 +64,7 @@ public class mainMenu : MonoBehaviour {
         player.GetComponent<PlayerMovement>().enabled = true;
         player.GetComponent<playerShoot>().enabled = true;
         playerController.animator.ResetTrigger("AnimState");
+        inv.SetActive(true);
         if (PlayerPrefs.HasKey("Volume"))
             settingsMenu.SetVolume(PlayerPrefs.GetFloat("Volume"));
     }

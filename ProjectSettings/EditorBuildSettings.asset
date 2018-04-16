@@ -122,3 +122,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Final Level/FloorTwo.unity
     guid: acd0f398785e47b409939ed6847ca4f0
+  - enabled: 1
+    path: Assets/Scenes/Final Level/CutScene.unity
+    guid: b467f1ff43ba3b445b11045c3ff764d1
