@@ -449,7 +449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  pointName: EnterLucHouse
+  pointName: EnterLucHouse4
   startPoint: {fileID: 0}
 --- !u!4 &1243548326
 Transform:

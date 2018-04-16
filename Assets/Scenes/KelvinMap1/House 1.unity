@@ -803,7 +803,7 @@ Prefab:
     - target: {fileID: 114936540534614970, guid: 126de1cdd0331cb4b86749c596ab3272,
         type: 2}
       propertyPath: pointName
-      value: EnterLucL1H1
+      value: EnterLucHouse
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 126de1cdd0331cb4b86749c596ab3272, type: 2}
