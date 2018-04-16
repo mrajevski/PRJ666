@@ -54,8 +54,7 @@ public class mainMenu : MonoBehaviour {
     {
         Time.timeScale = 1f;
         string level = randomMap.randomFirstLevel();
-        SceneManager.LoadScene(level);
-        
+        playerController.level = level;
         playerController.transform.position = randomMap.relocatePlayerPosition(level);
 
         healthController.health = 100;
@@ -63,12 +62,14 @@ public class mainMenu : MonoBehaviour {
 
         player = GameObject.FindGameObjectWithTag("Player");
 
-        player.GetComponent<PlayerMovement>().enabled = true;
-        player.GetComponent<playerShoot>().enabled = true;
+        player.GetComponent<PlayerMovement>().enabled = false;
+        player.GetComponent<playerShoot>().enabled = false;
         playerController.animator.ResetTrigger("AnimState");
         inv.SetActive(true);
         HUD.SetActive(true);
         objectiveC.SetActive(true);
+        SceneManager.LoadScene("CutOne");
+
         if (PlayerPrefs.HasKey("Volume"))
             settingsMenu.SetVolume(PlayerPrefs.GetFloat("Volume"));
     }

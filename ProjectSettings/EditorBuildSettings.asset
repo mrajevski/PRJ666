@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/main.unity
     guid: 698d174f2a5f16345b27a781bc284cae
   - enabled: 1
+    path: Assets/Scenes/CutScenes/CutOne.unity
+    guid: db802ad162be87f45a6214ed40910589
+  - enabled: 1
     path: Assets/Scenes/KelvinMap1/House 1.unity
     guid: ee182e7648e5b164393be7c6f51545ed
   - enabled: 1
@@ -142,4 +145,7 @@ EditorBuildSettings:
     guid: 290f7ef4bef9c8c4c8d8ba534dca086a
   - enabled: 1
     path: Assets/Scenes/ParmMap1/ParmMap1Shop1.unity
-    guid: 00000000000000000000000000000000
+    guid: f30e569534f667d4bbea25f6d7976930
+  - enabled: 1
+    path: Assets/Scenes/Menus/dead.unity
+    guid: d7928fc59fd82464696a9a8eb9308c1d

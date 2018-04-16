@@ -507,6 +507,55 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d49f3e808ab945d4d8d1c01168fa89cb, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &523155604 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1427040216216182, guid: d49f3e808ab945d4d8d1c01168fa89cb,
+    type: 2}
+  m_PrefabInternal: {fileID: 523155603}
+--- !u!1 &535220685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 535220687}
+  - component: {fileID: 535220686}
+  m_Layer: 0
+  m_Name: GetAllCanvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &535220686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 535220685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e2a9bc35daa6e4f8ebb6f209ee0f2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HUD: {fileID: 2145706452}
+  player: {fileID: 523155604}
+  inv: {fileID: 2041923886}
+  objectiveC: {fileID: 1717006004}
+--- !u!4 &535220687
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 535220685}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.1530209, y: 0.50244737, z: 0.40625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &601621259
 Prefab:
   m_ObjectHideFlags: 0

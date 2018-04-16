@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class EndAll : MonoBehaviour {
 
-    public GameObject player;
-
     // Use this for initialization
     void Start()
     {

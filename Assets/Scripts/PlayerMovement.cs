@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour {
 	Vector3 mousePos;
 	Rigidbody player;
 	Camera cam;
+    public string level;
     public int wallet = 10000;
 	int floorMask;
 	public float speed;
