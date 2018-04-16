@@ -292,7 +292,7 @@ Prefab:
     - target: {fileID: 114767056139228616, guid: 9d6df1c660daa414fac19da51119ad33,
         type: 2}
       propertyPath: exitPoint
-      value: ExitMansion
+      value: Exit Mansion
       objectReference: {fileID: 0}
     - target: {fileID: 114767056139228616, guid: 9d6df1c660daa414fac19da51119ad33,
         type: 2}
@@ -412,7 +412,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &775619614
 Prefab:
@@ -584,7 +584,7 @@ Transform:
   m_LocalScale: {x: 55, y: 55, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1122049138
 GameObject:
@@ -777,7 +777,7 @@ Transform:
   - {fileID: 1240349220}
   - {fileID: 1537642595}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1234197587
 GameObject:
@@ -1263,6 +1263,31 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224932454109876582, guid: 0047670467c740c42a3865ec7cf79748,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224012517638866478, guid: 0047670467c740c42a3865ec7cf79748,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224012517638866478, guid: 0047670467c740c42a3865ec7cf79748,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224859717806121758, guid: 0047670467c740c42a3865ec7cf79748,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224859717806121758, guid: 0047670467c740c42a3865ec7cf79748,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224859717806121758, guid: 0047670467c740c42a3865ec7cf79748,
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 1
