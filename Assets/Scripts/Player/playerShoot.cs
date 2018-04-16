@@ -11,7 +11,6 @@ public class playerShoot : MonoBehaviour {
 	public GameObject backpack;
 	private itemController inventory;
 	private ammoController ammo;
-	public int g = 0, gunID;
 	public Transform aim;
 	Ray shootRay = new Ray();
 	RaycastHit shootHit;
@@ -33,32 +32,30 @@ public class playerShoot : MonoBehaviour {
 	void Update ()
 	{
 		timer += Time.deltaTime;
-		gunID = inventory.equipment [g].gun.gunID;
 
 		// Shoot //
-		if(Input.GetKey(KeyCode.Mouse0) && timer >= inventory.equipment [g].gun.rateOfFire && Time.timeScale != 0 && !menu && !house) {
-			switch (inventory.equipment [g].gun.fireMode) {
+		if(Input.GetKey(KeyCode.Mouse0) && timer >= inventory.equipment [inventory.g].gun.rateOfFire && Time.timeScale != 0 && !menu && !house) {
+			switch (inventory.equipment [inventory.g].gun.fireMode) {
 			case 0: // Full-auto //
 				if (chamber && !sprinting && !reloading && !switching) {
-					if (ammo.shot (inventory.equipment [g].gun.ammoID))
+					if (ammo.shot (inventory.equipment [inventory.g].gun.ammoID))
 						Shoot ();
 				}
 				break;
 			case 1: // Semi-auto //
 				if (!trigger && chamber && !sprinting && !reloading && !switching) {
-					if (ammo.shot (inventory.equipment [g].gun.ammoID))
+					if (ammo.shot (inventory.equipment [inventory.g].gun.ammoID))
 						trigger = true;
 					Shoot ();
 				}
 				break;
 			case 2: // Shotgun //
-                if (!trigger && chamber && !sprinting && !reloading && !switching)
-                {
-                    if (ammo.shot(inventory.equipment[g].gun.ammoID))
-                         trigger = true;
-                    Shoot();
-                }
-                break;
+				if (!trigger && chamber && !sprinting && !reloading && !switching) {
+					if (ammo.shot (inventory.equipment [inventory.g].gun.ammoID))
+						trigger = true;
+					Shoot ();
+				}
+				break;
 			default:
 				break;
 			}
@@ -69,21 +66,21 @@ public class playerShoot : MonoBehaviour {
 			trigger = false;
 
 		// Reload //
-		if (Input.GetKey(KeyCode.R) && ammo.ammo[inventory.equipment [g].gun.ammoID] != 0 && !reloading && !switching) {
+		if (Input.GetKey(KeyCode.R) && ammo.ammo[inventory.equipment [inventory.g].gun.ammoID] != 0 && !reloading && !switching) {
 			reload ();
 			timer = 0.0f;
 			reloading = true;
-			inventory.equipment [g].gun.reloadAudio.Play ();
+			inventory.equipment [inventory.g].gun.reloadAudio.Play ();
 		}
 
 		// Reload Timer //
 		if (reloading) {
-			if (timer >= inventory.equipment [g].gun.reloadTime)
+			if (timer >= inventory.equipment [inventory.g].gun.reloadTime)
 				reloading = false;
 		}
 
 		// Rate of Fire //
-		if (timer >= inventory.equipment [g].gun.rateOfFire * 0.1f + 0.02f) {
+		if (timer >= inventory.equipment [inventory.g].gun.rateOfFire * 0.1f + 0.02f) {
 			disableShot();
 		}
 
@@ -115,21 +112,21 @@ public class playerShoot : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Alpha1) && !switching) {
 			switching = true;
 			timer = 0.0f;
-			g = 0;
+			inventory.g = 0;
 			chamber = false;
 			reload ();
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha2) && !switching) {
 			switching = true;
 			timer = 0.0f;
-			g = 1;
+			inventory.g = 1;
 			chamber = false;
 			reload ();
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha3) && !switching) {
 			switching = true;
 			timer = 0.0f;
-			g = 2;
+			inventory.g = 2;
 			chamber = false;
 			reload ();
 		}
@@ -165,7 +162,7 @@ public class playerShoot : MonoBehaviour {
 		gunLine.enabled = true;	
 		gunLine.SetPosition (0, aim.position);
 
-		inventory.equipment [g].gun.gunAudio.Play ();
+		inventory.equipment [inventory.g].gun.gunAudio.Play ();
 
 		spread = (Random.Range(currAccuracy - 0.1f, 100.0f) - 100.0f);
 		spread *= ((Random.Range (0, 10) < 5) ? -0.5f : 0.5f);
@@ -179,7 +176,7 @@ public class playerShoot : MonoBehaviour {
 			enemyHealth enemyHealth = shootHit.collider.GetComponent <enemyHealth> ();
 			if(enemyHealth != null)
 			{
-				enemyHealth.takeDamage (inventory.equipment [g].gun.damage);
+				enemyHealth.takeDamage (inventory.equipment [inventory.g].gun.damage);
 			}
 			Vector3 shotPoint;
 			shotPoint.x = shootHit.point.x;
@@ -192,7 +189,7 @@ public class playerShoot : MonoBehaviour {
 			gunLine.SetPosition (1, shootRay.origin + shootRay.direction * range);
 		}
 
-		if (currAccuracy > inventory.equipment [g].gun.accuracy) { 
+		if (currAccuracy > inventory.equipment [inventory.g].gun.accuracy) { 
 			currAccuracy -= 1.0f;
 		}
 
@@ -204,14 +201,14 @@ public class playerShoot : MonoBehaviour {
 	}
 
 	private void reload() {
-		int ammoID = inventory.equipment [g].gun.ammoID,
-			magCapacity = inventory.equipment [g].gun.magCapacity;
+		int ammoID = inventory.equipment [inventory.g].gun.ammoID,
+		magCapacity = inventory.equipment [inventory.g].gun.magCapacity;
 
 		if (ammo.ammo [ammoID] > magCapacity) {
 			mag = (chamber) ? magCapacity : magCapacity - 1;
 			chamber = true;
-		} else if (ammo.ammo [ammoID] > 0) {
-			mag = (chamber) ? ammo.ammo [ammoID] : ammo.ammo [ammoID] - 1;
+		} else if (ammo.ammo [ammoID] < magCapacity + 1) {
+			mag = ammo.ammo [ammoID] - 1;
 			chamber = true;
 		} else {
 			mag = 0;

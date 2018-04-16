@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 95754085965820608}
   - component: {fileID: 114379282860567818}
   - component: {fileID: 82505273762017956}
+  - component: {fileID: 114843220709483666}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -756,6 +757,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   startPoint: 
   JerryCans: 0
+  playerLevel: 0
   spriteUse: 0
 --- !u!114 &114272059586060068
 MonoBehaviour:
@@ -778,8 +780,6 @@ MonoBehaviour:
   house: 0
   trigger: 0
   backpack: {fileID: 1721415672472068}
-  g: 0
-  gunID: 0
   aim: {fileID: 4483651995036538}
   gunEmpty: {fileID: 82505273762017956}
 --- !u!114 &114379282860567818
@@ -876,6 +876,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammo: 
+--- !u!114 &114843220709483666
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1427040216216182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce8f4732df86c0f45893caa15dfd191f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114873109137237934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -927,9 +938,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   capacity: 16
-  bagID: 0
   size: 0
+  bagID: 0
   armorLVL: -1
+  gas: 0
   inventory: []
   equipment: []
   starterG1: {fileID: 114942499296084348}
@@ -937,6 +949,8 @@ MonoBehaviour:
   starterHealth: {fileID: 114563351968906242}
   empty: {fileID: 114177312300764552, guid: 2dd582c5ceea9c14db0453b6692563be, type: 2}
   ammo: {fileID: 114737536325599016}
+  mask: 0
+  g: 0
 --- !u!120 &120729571516536764
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -1020,6 +1034,7 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!135 &135176953259122180
@@ -1074,6 +1089,8 @@ SpriteRenderer:
   m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!212 &212350346704136786
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1114,6 +1131,8 @@ SpriteRenderer:
   m_Size: {x: 0.58, y: 0.43}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!212 &212684468550966650
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1154,6 +1173,8 @@ SpriteRenderer:
   m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!212 &212805579087526268
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1194,3 +1215,5 @@ SpriteRenderer:
   m_Size: {x: 7.65, y: 4.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
