@@ -97,8 +97,8 @@ public class RandomMap : MonoBehaviour {
             pos = new Vector2(-26.5f, -7.5f);
         else if (level.Equals("KelvinLevel3"))
             pos = new Vector2(-3.6f, -0.25f);
-        else if (level.Equals("ParmLevel3"))
-            pos = new Vector2(1, 0);
+        else if (level.Equals("ParmMap2"))
+            pos = new Vector2(27.41f, -21.58f);
         else if (level.Equals("Final"))
             pos = new Vector2(2.5f, -14.0f);
     }
@@ -113,6 +113,5 @@ public class RandomMap : MonoBehaviour {
             pos = new Vector2(18.68f, -13.03f);
 
         return pos;
-
     }
 }

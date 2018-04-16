@@ -81,14 +81,16 @@ public class PauseMenu : MonoBehaviour {
 
 public void Save()
     {
-     /*
+
+        scene = SceneManager.GetActiveScene();
+
         //Saving from playerPref
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetFloat("Health", playerHealth.health);
         PlayerPrefs.SetFloat("Armor", playerHealth.armor);
         PlayerPrefs.SetString("Scene", scene.name); 
         PlayerPrefs.Save();
-        */
+        
         //Save to file
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/save.dat");
@@ -96,6 +98,7 @@ public void Save()
         PlayerData data = new PlayerData();
         data.health = playerHealth.health;
         data.armor  = playerHealth.armor;
+        data.jerryCan = playerMovement.JerryCans;
         data.currentPositionX = GameObject.Find("Player").transform.position.x;
         data.currentPositionY = GameObject.Find("Player").transform.position.y;
         data.currentScene = scene.name;
@@ -121,4 +124,5 @@ class PlayerData
     public string currentScene;
     public float currentPositionX;
     public float currentPositionY;
+    public int jerryCan;
 }

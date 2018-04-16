@@ -77,6 +77,9 @@ public class mainMenu : MonoBehaviour {
     {
 
         player = GameObject.FindGameObjectWithTag("Player");
+        playerController.animator.ResetTrigger("AnimState");
+        inv.SetActive(true);
+        HUD.SetActive(true);
 
         player.GetComponent<PlayerMovement>().enabled = true;
         player.GetComponent<playerShoot>().enabled = true;
@@ -92,7 +95,8 @@ public class mainMenu : MonoBehaviour {
 
             playerHealth.healthController.health = data.health;
             playerHealth.healthController.armor = data.armor;
-
+            playerController.JerryCans = data.jerryCan;
+            string scene = data.currentScene;
             Vector2 pos;
             pos.x = data.currentPositionX;
             pos.y = data.currentPositionY;
@@ -102,7 +106,7 @@ public class mainMenu : MonoBehaviour {
             //= data.currentPositionX;
             //PlayerMovement.movementControl.currentPos.y = data.currentPositionY;
 
-            SceneManager.LoadScene(data.currentScene);
+            SceneManager.LoadScene(scene);
         }
     }
 

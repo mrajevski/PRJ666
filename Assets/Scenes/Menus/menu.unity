@@ -212,7 +212,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1210374993282454, guid: 0920696e3d065a841a7a0cf3e38037ce, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0920696e3d065a841a7a0cf3e38037ce, type: 2}
@@ -333,8 +333,10 @@ MonoBehaviour:
   quitText: {fileID: 1509300610}
   healthController: {fileID: 0}
   playerController: {fileID: 0}
+  HUD: {fileID: 2145706452}
   player: {fileID: 0}
   inv: {fileID: 2041923886}
+  objectiveC: {fileID: 1717006004}
   randomMap: {fileID: 0}
 --- !u!114 &221636510
 MonoBehaviour:
@@ -645,7 +647,7 @@ Prefab:
     - target: {fileID: 224503435602172398, guid: 0047670467c740c42a3865ec7cf79748,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -25.245
       objectReference: {fileID: 0}
     - target: {fileID: 224572942102290744, guid: 0047670467c740c42a3865ec7cf79748,
         type: 2}
@@ -665,7 +667,7 @@ Prefab:
     - target: {fileID: 224572942102290744, guid: 0047670467c740c42a3865ec7cf79748,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -25.245
       objectReference: {fileID: 0}
     - target: {fileID: 224674422161288442, guid: 0047670467c740c42a3865ec7cf79748,
         type: 2}
@@ -685,7 +687,7 @@ Prefab:
     - target: {fileID: 224674422161288442, guid: 0047670467c740c42a3865ec7cf79748,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -25.245
       objectReference: {fileID: 0}
     - target: {fileID: 224021201906524866, guid: 0047670467c740c42a3865ec7cf79748,
         type: 2}
@@ -705,7 +707,7 @@ Prefab:
     - target: {fileID: 224021201906524866, guid: 0047670467c740c42a3865ec7cf79748,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -25.245
       objectReference: {fileID: 0}
     - target: {fileID: 224345484786312164, guid: 0047670467c740c42a3865ec7cf79748,
         type: 2}
@@ -725,7 +727,7 @@ Prefab:
     - target: {fileID: 224345484786312164, guid: 0047670467c740c42a3865ec7cf79748,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -25.245
       objectReference: {fileID: 0}
     - target: {fileID: 224851179013584498, guid: 0047670467c740c42a3865ec7cf79748,
         type: 2}
@@ -745,6 +747,10 @@ Prefab:
     - target: {fileID: 224851179013584498, guid: 0047670467c740c42a3865ec7cf79748,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+      value: -25.245
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368931504431480, guid: 0047670467c740c42a3865ec7cf79748, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2706,6 +2712,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1717006004 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1210374993282454, guid: 0920696e3d065a841a7a0cf3e38037ce,
+    type: 2}
+  m_PrefabInternal: {fileID: 154181030}
 --- !u!1 &1781716536
 GameObject:
   m_ObjectHideFlags: 0
@@ -2831,3 +2842,8 @@ GameObject:
   m_PrefabParentObject: {fileID: 1967885803369462, guid: f72a8b98176e47f408042f47aec8f0df,
     type: 2}
   m_PrefabInternal: {fileID: 1400394003}
+--- !u!1 &2145706452 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1368931504431480, guid: 0047670467c740c42a3865ec7cf79748,
+    type: 2}
+  m_PrefabInternal: {fileID: 601621259}

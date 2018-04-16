@@ -117,7 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 21754109}
   - component: {fileID: 21754110}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 231754963}
   - component: {fileID: 231754964}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: box (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 819906174}
   - component: {fileID: 819906175}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: chair2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -519,7 +519,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &906851424
 GameObject:
@@ -530,7 +530,7 @@ GameObject:
   m_Component:
   - component: {fileID: 906851425}
   - component: {fileID: 906851426}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: opTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -574,7 +574,7 @@ GameObject:
   - component: {fileID: 907831984}
   - component: {fileID: 907831983}
   - component: {fileID: 907831982}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -649,7 +649,7 @@ Transform:
   - {fileID: 1053186623}
   - {fileID: 1568059795}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &949574457
 Prefab:
@@ -702,7 +702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 959711408}
   - component: {fileID: 959711409}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FinalObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -743,7 +743,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1053186623}
   - component: {fileID: 1053186624}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: chair3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -838,7 +838,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1205871495}
   - component: {fileID: 1205871496}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: opTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -969,7 +969,7 @@ GameObject:
   - component: {fileID: 1568059798}
   - component: {fileID: 1568059797}
   - component: {fileID: 1568059796}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1174,7 +1174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1698864074}
   - component: {fileID: 1698864075}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1370,6 +1370,31 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224932454109876582, guid: 0047670467c740c42a3865ec7cf79748,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224012517638866478, guid: 0047670467c740c42a3865ec7cf79748,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224012517638866478, guid: 0047670467c740c42a3865ec7cf79748,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224859717806121758, guid: 0047670467c740c42a3865ec7cf79748,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224859717806121758, guid: 0047670467c740c42a3865ec7cf79748,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224859717806121758, guid: 0047670467c740c42a3865ec7cf79748,
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 1

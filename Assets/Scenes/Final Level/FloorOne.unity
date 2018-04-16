@@ -241,7 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 414531757}
   - component: {fileID: 414531758}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Couch2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 986258333}
   - component: {fileID: 986258332}
   - component: {fileID: 986258331}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -953,7 +953,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1673636211}
   - component: {fileID: 1673636212}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -994,7 +994,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1734080043}
   - component: {fileID: 1734080044}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Counter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1136,7 +1136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1792185256}
   - component: {fileID: 1792185257}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1177,7 +1177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1985081586}
   - component: {fileID: 1985081587}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Couch
   m_TagString: Untagged
   m_Icon: {fileID: 0}

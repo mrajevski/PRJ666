@@ -373,7 +373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 464729067}
   - component: {fileID: 464729068}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Coffee Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1001 &775619614
 Prefab:
@@ -532,7 +532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 854008753}
   - component: {fileID: 854008754}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Island
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -686,6 +686,31 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 224012517638866478, guid: 0047670467c740c42a3865ec7cf79748,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224012517638866478, guid: 0047670467c740c42a3865ec7cf79748,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224859717806121758, guid: 0047670467c740c42a3865ec7cf79748,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224859717806121758, guid: 0047670467c740c42a3865ec7cf79748,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224859717806121758, guid: 0047670467c740c42a3865ec7cf79748,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0047670467c740c42a3865ec7cf79748, type: 2}
   m_IsPrefabParent: 0
@@ -771,7 +796,7 @@ Transform:
   m_LocalScale: {x: 55, y: 55, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1122049138
 GameObject:
@@ -787,7 +812,7 @@ GameObject:
   - component: {fileID: 1122049142}
   - component: {fileID: 1122049141}
   - component: {fileID: 1122049140}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Couch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -891,7 +916,7 @@ GameObject:
   - component: {fileID: 1216629088}
   - component: {fileID: 1216629087}
   - component: {fileID: 1216629086}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -964,7 +989,7 @@ Transform:
   - {fileID: 1240349220}
   - {fileID: 1537642595}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &1234197587
 GameObject:
@@ -975,7 +1000,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1234197588}
   - component: {fileID: 1234197589}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1017,7 +1042,7 @@ GameObject:
   - component: {fileID: 1240349220}
   - component: {fileID: 1240349222}
   - component: {fileID: 1240349221}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Counter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1174,7 +1199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1537642595}
   - component: {fileID: 1537642596}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1384,7 +1409,7 @@ GameObject:
   - component: {fileID: 1905745761}
   - component: {fileID: 1905745763}
   - component: {fileID: 1905745762}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
