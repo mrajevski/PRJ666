@@ -32,7 +32,7 @@ public class PauseMenu : MonoBehaviour {
 
     void Start() {
         pauseMenuUI.SetActive(false);
-        controls.SetActive(false);
+        //controls.SetActive(false);
         SaveText = SaveText.GetComponent<Button>();
         exitText = exitText.GetComponent<Button>();
         resumeText = resumeText.GetComponent<Button>();
