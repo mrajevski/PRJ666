@@ -16,8 +16,10 @@ public class mainMenu : MonoBehaviour {
     public playerHealth healthController;
     public PlayerMovement playerController;
 
+    public GameObject HUD;
     public GameObject player;
     public GameObject inv;
+    public GameObject objectiveC;
 
     public RandomMap randomMap;
 
@@ -65,6 +67,8 @@ public class mainMenu : MonoBehaviour {
         player.GetComponent<playerShoot>().enabled = true;
         playerController.animator.ResetTrigger("AnimState");
         inv.SetActive(true);
+        HUD.SetActive(true);
+        objectiveC.SetActive(true);
         if (PlayerPrefs.HasKey("Volume"))
             settingsMenu.SetVolume(PlayerPrefs.GetFloat("Volume"));
     }

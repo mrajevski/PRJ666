@@ -53,6 +53,7 @@ public class playerShoot : MonoBehaviour {
 				if (!trigger && chamber && !sprinting && !reloading && !switching) {
 					if (ammo.shot (inventory.equipment [inventory.g].gun.ammoID))
 						trigger = true;
+                    if(mag >= 0)
 					Shoot ();
 				}
 				break;
