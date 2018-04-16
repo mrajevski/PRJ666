@@ -24,7 +24,7 @@ public class EndAll : MonoBehaviour {
         {
             if ((Input.GetKeyDown(KeyCode.E)))
             {
-
+                SceneManager.LoadScene("CutScene");
             }
         }
     }
