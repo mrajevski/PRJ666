@@ -20,7 +20,6 @@ public class playerShoot : MonoBehaviour {
 	void Start() {
 		ammo = backpack.GetComponent<ammoController> ();
 		inventory = backpack.GetComponent<itemController> ();
-		reload ();
 	}
 
 	void Awake ()
@@ -67,7 +66,7 @@ public class playerShoot : MonoBehaviour {
 			trigger = false;
 
 		// Reload //
-		if (Input.GetKey(KeyCode.R) && ammo.ammo[inventory.equipment [inventory.g].gun.ammoID] != 0 && () && !reloading && !switching) {
+		if (Input.GetKey(KeyCode.R) && ammo.ammo[inventory.equipment [inventory.g].gun.ammoID] != 0 && !reloading && !switching) {
 			reload ();
 			timer = 0.0f;
 			reloading = true;
@@ -205,11 +204,11 @@ public class playerShoot : MonoBehaviour {
 		int ammoID = inventory.equipment [inventory.g].gun.ammoID,
 		magCapacity = inventory.equipment [inventory.g].gun.magCapacity;
 
-		if (ammo.ammo [ammoID] > magCapacity + 1) {
+		if (ammo.ammo [ammoID] > magCapacity) {
 			mag = (chamber) ? magCapacity : magCapacity - 1;
 			chamber = true;
-		} else if (ammo.ammo [ammoID] > 0) {
-			mag = (chamber) ? ammo.ammo [ammoID] : ammo.ammo [ammoID] - 1;
+		} else if (ammo.ammo [ammoID] < magCapacity + 1) {
+			mag = ammo.ammo [ammoID] - 1;
 			chamber = true;
 		} else {
 			mag = 0;

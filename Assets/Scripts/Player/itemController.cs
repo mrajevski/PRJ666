@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class itemController : MonoBehaviour{
 
-	public int capacity, bagID, size, armorLVL = -1;
+	public int capacity, size, bagID = 0, armorLVL = 0, gas = 0;
 	/* 0 - starter backpack, 16 slots // 1 - small backpack, 24 slots // 2 - large backpack, 32 slots */
 	public List<itemObject> inventory = new List<itemObject>();
 	public List<itemObject> equipment = new List<itemObject>();

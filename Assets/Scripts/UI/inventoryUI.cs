@@ -45,6 +45,7 @@ public class inventoryUI : MonoBehaviour {
 			updateAmmo ();
 			updateInventory ();
 			updateEquipment ();
+			updateStuff ();
 		}
 	}
 
@@ -79,7 +80,15 @@ public class inventoryUI : MonoBehaviour {
 			GameObject I = GameObject.Find ("eItem " + j.ToString ());
 			I.GetComponent<Image> ().sprite = inventory.equipment[j].image;
 		}
+	}
 
+	void updateStuff() {
+		GameObject T = GameObject.Find ("Armor/Text");
+		T.GetComponent<Text> ().text = "LVL " + inventory.armorLVL.ToString();
+		T = GameObject.Find ("Bag/Text");
+		T.GetComponent<Text> ().text = "LVL " + inventory.bagID.ToString();
+		T = GameObject.Find ("Gas/Text");
+		T.GetComponent<Text> ().text = "x" + inventory.gas.ToString();
 	}
 
 }

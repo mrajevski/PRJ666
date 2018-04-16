@@ -56,7 +56,8 @@ public class hudHandler : MonoBehaviour {
 
 	void updateAmmo() {
 		GameObject T = GameObject.Find ("Guns/Ammo count");
-		T.GetComponent<Text> ().text = shootHandler.mag + ((shootHandler.chamber) ? "+1" : "") + " / " +
+		T.GetComponent<Text> ().text = 
+			((shootHandler.chamber) ? (shootHandler.mag + 1).ToString() : shootHandler.mag.ToString()) + " / " +
 			inventory.ammo.ammo[inventory.equipment [inventory.g].gun.ammoID].ToString();
 	}
 }
