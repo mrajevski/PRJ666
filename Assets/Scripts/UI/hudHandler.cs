@@ -8,10 +8,22 @@ public class hudHandler : MonoBehaviour {
 	itemController inventory;
 	playerShoot shootHandler;
 
+    public static bool isExist;
+
 	// Use this for initialization
 	void Start () {
 		inventory = GameObject.Find ("Player/Backpack").GetComponent<itemController> ();
 		shootHandler = GameObject.Find ("Player").GetComponent<playerShoot> ();
+
+        if (!isExist)
+        {
+            isExist = true;
+            DontDestroyOnLoad(transform.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 	
 	// Update is called once per frame
