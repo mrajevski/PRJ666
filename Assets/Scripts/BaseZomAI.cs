@@ -32,7 +32,7 @@ public class BaseZomAI : MonoBehaviour {
 
         player = GameObject.FindGameObjectWithTag("Player");
         //playerDamage = GetComponent<playerHealth>();
-        playerDamage = Object.FindObjectOfType<playerHealth>();
+        playerDamage = player.GetComponent<playerHealth>();
         //playerDamage = new playerHealth();
         damageCounter = damageTime;
         rb = GetComponent<Rigidbody>();
