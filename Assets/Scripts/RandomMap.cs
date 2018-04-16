@@ -19,13 +19,13 @@ public class RandomMap : MonoBehaviour {
         //Names for first levels
         levelOne.Add("main");
         levelOne.Add("LucasMap1");
-        //levelOne.Add("ParmMap1");//Need to be added
+        levelOne.Add("ParmMap1");//Need to be added
         //levelOne.Add("MattMap1");//Need to be added
 
         //Names for second levels
         levelTwo.Add("LucasMap2");
         levelTwo.Add("KelvinLevel2");
-        //levelTwo.Add("ParmMap2");//Need to be added
+        levelTwo.Add("ParmMap2");//Need to be added
         //levelTwo.Add("MattMap2");//Need to be added
 
         ////Names for level three
@@ -97,6 +97,8 @@ public class RandomMap : MonoBehaviour {
             pos = new Vector2(-26.5f, -7.5f);
         else if (level.Equals("KelvinLevel3"))
             pos = new Vector2(-3.6f, -0.25f);
+        else if (level.Equals("ParmLevel3"))
+            pos = new Vector2(1, 0);
         else if (level.Equals("Final"))
             pos = new Vector2(2.5f, -14.0f);
     }
@@ -107,6 +109,8 @@ public class RandomMap : MonoBehaviour {
             pos = new Vector2(-11.81f, -12f);
         else if (level.Equals("LucasMap1"))
             pos = new Vector2(-52, -5);
+        else if (level.Equals("ParmMap1"))
+            pos = new Vector2(18.68f, -13.03f);
 
         return pos;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class playerShoot : MonoBehaviour {
 
-	private float timer, switchTimer = 2.5f, currAccuracy = 100.0f, spread = 0.0f;
+	private float timer, switchTimer = 0.5f, currAccuracy = 100.0f, spread = 0.0f;
 	private int range = 100, shootableMask;
 	public int mag;  
 	public bool chamber = true, reloading = false, aiming = false, sprinting = false, switching = false, menu = false, house = false, trigger = false;
