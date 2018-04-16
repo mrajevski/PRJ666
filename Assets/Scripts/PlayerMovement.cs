@@ -46,6 +46,10 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (speed >= 6.0f || speed <= 3.9f)
+        {
+            speed = 4.0f;
+        }
 		// Aim check //
 		if (Input.GetKeyDown(KeyCode.Mouse1)) {
 			speed *= 0.5f;

@@ -44,4 +44,10 @@ public class DialogueManager : MonoBehaviour {
         yield return new WaitForSeconds(5.0f);
         SceneManager.LoadScene("menu");
     }
+
+    public void ShowDialogue()
+    {
+        dialogActive = true;
+        dBox.SetActive(true);
+    }
 }

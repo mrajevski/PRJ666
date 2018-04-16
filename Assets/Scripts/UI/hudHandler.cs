@@ -12,7 +12,7 @@ public class hudHandler : MonoBehaviour {
 	void Start () {
 		inventory = GameObject.Find ("Player/Backpack").GetComponent<itemController> ();
 		shootHandler = GameObject.Find ("Player").GetComponent<playerShoot> ();
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
