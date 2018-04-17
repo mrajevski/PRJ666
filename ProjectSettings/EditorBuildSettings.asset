@@ -153,6 +153,9 @@ EditorBuildSettings:
     path: Assets/Scenes/CutScenes/credit.unity
     guid: 14496618f578bac4698d888ac5848ff2
   - enabled: 1
+    path: Assets/Scenes/CutScenes/CutFour.unity
+    guid: cd3e79c893afe3a4788babada13b1e53
+  - enabled: 1
     path: Assets/Scenes/CutScenes/CutThree.unity
     guid: 6fb084afaf266cd47af28c5e09b20792
   - enabled: 1

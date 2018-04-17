@@ -37,7 +37,7 @@ public class ScavShoot : MonoBehaviour
         if (accuracy < 64f)
             damage += 0.5f;
 
-        shootableMask = LayerMask.GetMask("Default");
+        shootableMask = LayerMask.GetMask("Shootable");
         gunLine = GetComponent<LineRenderer>();
         curMag = mag;
     }
