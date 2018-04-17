@@ -149,3 +149,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menus/dead.unity
     guid: d7928fc59fd82464696a9a8eb9308c1d
+  - enabled: 1
+    path: Assets/Scenes/CutScenes/credit.unity
+    guid: 14496618f578bac4698d888ac5848ff2

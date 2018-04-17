@@ -21,13 +21,13 @@ public class DialogueManager : MonoBehaviour {
 
     public Canvas HUD;
     public GameObject player;
-    public Canvas inv;
-    public Canvas objectiveC;
+    public holdAll all;
 
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
 
+        all = FindObjectOfType<holdAll>();
         if (levelName.Equals("") || levelName.Equals(null))
         {
             levelName = player.GetComponent<PlayerMovement>().level;
@@ -35,6 +35,7 @@ public class DialogueManager : MonoBehaviour {
 
         player.GetComponent<PlayerMovement>().enabled = false;
         player.GetComponent<playerShoot>().enabled = false;
+        all.setCanvasInvisible();
     }
 	
 	// Update is called once per frame
@@ -58,9 +59,17 @@ public class DialogueManager : MonoBehaviour {
     IEnumerator JumpToMain()
     {
         yield return new WaitForSeconds(5.0f);
-        player.GetComponent<PlayerMovement>().enabled = true;
-        player.GetComponent<playerShoot>().enabled = true;
-        SceneManager.LoadScene(levelName);
+
+        if (!levelName.Equals("menu"))
+        {
+            all.setCanvasVisible();
+            player.GetComponent<PlayerMovement>().enabled = true;
+            player.GetComponent<playerShoot>().enabled = true;
+            SceneManager.LoadScene(levelName);
+        }
+        else{
+            SceneManager.LoadScene("credit");
+        }
     }
 
     public void ShowDialogue()

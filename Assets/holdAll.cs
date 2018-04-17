@@ -31,15 +31,24 @@ public class holdAll : MonoBehaviour {
 
     public void setCanvasInvisible()
     {
-        inv.SetActive(false);
-        HUD.SetActive(false);
-        objectiveC.SetActive(false);
+        if (inv != null)
+        {
+            inv.SetActive(false);
+            HUD.SetActive(false);
+            objectiveC.SetActive(false);
+        }
+
     }
 
     public void setCanvasVisible()
     {
-        inv.SetActive(true);
-        HUD.SetActive(true);
-        objectiveC.SetActive(true);
+        if (inv != null)
+        {
+            inv.SetActive(true);
+            HUD.SetActive(true);
+            objectiveC.SetActive(true);
+
+        }
+
     }
 }
