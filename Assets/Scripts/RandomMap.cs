@@ -76,9 +76,22 @@ public class RandomMap : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.E))
         {
             player.transform.position = pos;
-            player.GetComponent<PlayerMovement>().playerLevel++;
             player.GetComponent<PlayerMovement>().JerryCans = 0;
-            SceneManager.LoadScene(levelToLoad);
+            player.GetComponent<PlayerMovement>().level = levelToLoad;
+            if (player.GetComponent<PlayerMovement>().playerLevel == 1)
+            {
+                player.GetComponent<PlayerMovement>().playerLevel++;
+                SceneManager.LoadScene("CutTwo");
+            }
+            else if (player.GetComponent<PlayerMovement>().playerLevel == 2)
+            {
+                player.GetComponent<PlayerMovement>().playerLevel++;
+                SceneManager.LoadScene("CutThree");
+            }
+            else
+            {
+                SceneManager.LoadScene(levelToLoad);
+            }
         }
     }
 
