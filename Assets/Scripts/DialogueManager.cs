@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour {
 
+    public static DialogueManager dialogueM;
     public GameObject dBox;
     public Text dText;
 
@@ -16,10 +17,26 @@ public class DialogueManager : MonoBehaviour {
 
     public int currentLine;
 
-	// Use this for initialization
-	void Start () {
+    public string levelName;
 
-	}
+    public Canvas HUD;
+    public GameObject player;
+    public holdAll all;
+
+    // Use this for initialization
+    void Start () {
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        all = FindObjectOfType<holdAll>();
+        if (levelName.Equals("") || levelName.Equals(null))
+        {
+            levelName = player.GetComponent<PlayerMovement>().level;
+        }
+
+        player.GetComponent<PlayerMovement>().enabled = false;
+        player.GetComponent<playerShoot>().enabled = false;
+        all.setCanvasInvisible();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -42,7 +59,17 @@ public class DialogueManager : MonoBehaviour {
     IEnumerator JumpToMain()
     {
         yield return new WaitForSeconds(5.0f);
-        SceneManager.LoadScene("menu");
+
+        if (!levelName.Equals("menu"))
+        {
+            all.setCanvasVisible();
+            player.GetComponent<PlayerMovement>().enabled = true;
+            player.GetComponent<playerShoot>().enabled = true;
+            SceneManager.LoadScene(levelName);
+        }
+        else{
+            SceneManager.LoadScene("credit");
+        }
     }
 
     public void ShowDialogue()

@@ -41,7 +41,7 @@ public class BarScript : MonoBehaviour {
         if(isDead)
             counter += Time.deltaTime + 0.1;
 
-        if (counter >= 40)
+        if (counter >= 35 && counter <= 36)
             SceneManager.LoadScene("dead");
 
         currentValue = health.health;
