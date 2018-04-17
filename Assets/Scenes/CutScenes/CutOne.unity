@@ -281,6 +281,34 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114712770131256490, guid: 30e97a0a217a5db4bbefc0f4835bebb9,
+        type: 2}
+      propertyPath: dialogLines.Array.data[0]
+      value: "It had been 48 hours since his reconnaissance squad had been entirely
+        slaughtered, ambushed by an indescribable\nhorror that had emerged from a
+        forest they had been scouting. But he was given little time to mourn. It was
+        up to the \nSoldier now to report his findings, so that the sacrifice of his
+        comrades would not be in vain. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 114712770131256490, guid: 30e97a0a217a5db4bbefc0f4835bebb9,
+        type: 2}
+      propertyPath: dialogLines.Array.data[1]
+      value: "At this time, however, the Soldier was in dire straights. The car he
+        had escaped in had run out of fuel. The Soldier needed \nto act quickly. He
+        needed to find weapons and ammunition; to fend himself from the many enemies
+        that could be find in \ntowns such as these. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 114712770131256490, guid: 30e97a0a217a5db4bbefc0f4835bebb9,
+        type: 2}
+      propertyPath: dialogLines.Array.data[2]
+      value: "Raiders and bandits patrolling the outskirts, armed to the teeth and
+        ready to kill. With nothing left to lose, nothing left worth \nliving for,
+        these unhinged scavengers will fight to the bitter end for their next kill.
+        And worse than them where the Plague \nStalkers, citizens of the town who
+        had succumbed to the Great Plague of 2018. Voracious and feral, these were
+        not \npeople anymore. They had been twisted by their illness into all-consuming,
+        unfeeling, monsters who could not be \nreasoned with."
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 30e97a0a217a5db4bbefc0f4835bebb9, type: 2}
   m_IsPrefabParent: 0
