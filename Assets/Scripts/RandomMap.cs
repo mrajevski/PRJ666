@@ -90,7 +90,7 @@ public class RandomMap : MonoBehaviour {
             }
             else
             {
-                SceneManager.LoadScene(levelToLoad);
+                SceneManager.LoadScene("CutFour");
             }
         }
     }
